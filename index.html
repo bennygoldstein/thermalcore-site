@@ -178,9 +178,16 @@
     background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
     transition:transform .2s,border-color .2s,box-shadow .2s}
   .app:hover{transform:translateY(-3px);border-color:rgba(76,201,240,.45);box-shadow:0 10px 34px rgba(0,0,0,.4)}
-  .app .aicon{width:78px;height:78px;margin:0 auto 14px;border-radius:18px;display:grid;place-items:center;
-    background:radial-gradient(65% 65% at 50% 38%,rgba(255,138,42,.16),rgba(76,201,240,.08) 70%,transparent);
-    border:1px solid var(--line2);box-shadow:inset 0 0 18px rgba(4,7,15,.6)}
+  .app .aicon{width:108px;height:108px;margin:0 auto 16px;border-radius:24px;display:grid;place-items:center;
+    background:radial-gradient(65% 65% at 50% 38%,rgba(255,138,42,.2),rgba(76,201,240,.1) 70%,transparent);
+    border:1px solid var(--line2);box-shadow:inset 0 0 22px rgba(4,7,15,.6),0 0 26px rgba(255,138,42,.08)}
+  .app .aicon svg{filter:drop-shadow(0 0 7px rgba(255,138,42,.35)) drop-shadow(0 0 3px rgba(76,201,240,.3));
+    transition:transform .25s}
+  .app:hover .aicon svg{transform:scale(1.08)}
+  .mstat{display:block;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .app .mstat b{display:block;font-family:Sora;font-size:1.24rem;font-weight:800;color:var(--orange-soft);margin-bottom:2px}
+  .app .mstat i{font-style:normal;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+  .gridnote{margin-top:18px;font-size:.74rem;color:var(--dim);text-align:center}
   .app b{display:block;font-size:.93rem;font-weight:700;margin-bottom:4px}
   .app span{font-size:.77rem;color:var(--muted);line-height:1.45}
 
@@ -192,9 +199,9 @@
   @media(max-width:920px){.imgrow{grid-template-columns:1fr}}
   .imgframe{border-radius:18px;overflow:hidden;border:1px solid var(--line2);
     box-shadow:0 20px 60px rgba(0,0,0,.5)}
-  .founderphoto{width:128px;height:128px;border-radius:50%;object-fit:cover;object-position:50% 22%;
-    margin:0 auto 16px;display:block;border:2px solid rgba(255,138,42,.55);
-    box-shadow:0 0 26px rgba(255,138,42,.3)}
+  .founderphoto{width:190px;height:190px;border-radius:50%;object-fit:cover;object-position:50% 20%;
+    margin:0 auto 18px;display:block;border:3px solid rgba(255,138,42,.55);
+    box-shadow:0 0 34px rgba(255,138,42,.32)}
 
   /* ---------- patent panel ---------- */
   .patentpanel{margin-top:44px;border:1px solid rgba(255,138,42,.35);border-radius:var(--radius);
@@ -440,7 +447,7 @@
       <p class="sub reveal">Twelve of the places the threaded element port already lives — each one a
         retrofit, not a rebuild.</p>
       <div class="appgrid">
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-mf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#141d2e"/></linearGradient></defs>
           <ellipse cx="24" cy="41" rx="17" ry="2.4" fill="#ff8a2a" opacity=".14"/>
           <rect x="8" y="9" width="15" height="32" rx="1.4" fill="url(#g-mf)" stroke="#4a5a75" stroke-width="1"/>
@@ -449,9 +456,9 @@
           <g fill="#4cc9f0" opacity=".85"><rect x="17" y="20" width="3" height="3.4" rx=".5"/><rect x="34" y="21" width="3" height="3.2" rx=".5"/><rect x="28" y="28" width="3" height="3.2" rx=".5"/></g>
           <rect x="29" y="11" width="6" height="6" rx="1" fill="#1b2637" stroke="#4a5a75"/><circle cx="32" cy="14" r="1.3" fill="#ff8a2a"><animate attributeName="opacity" values="1;.4;1" dur="2.4s" repeatCount="indefinite"/></circle>
           <path d="M5 41h38" stroke="#4a5a75" stroke-width="1.2" stroke-linecap="round"/>
-        </svg></div><b>Multifamily buildings</b><span>Domestic hot water at building scale</span></div>
+        </svg></div><b>Multifamily buildings</b><span>Domestic hot water at building scale</span><span class="mstat"><b>44M+</b><i>U.S. rental housing units</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-fi" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff8a2a"/><stop offset="1" stop-color="#ffb066"/></linearGradient><linearGradient id="g-fw" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1d3f57"/><stop offset="1" stop-color="#0e2334"/></linearGradient></defs>
           <path d="M6 20h36v14a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6z" fill="url(#g-fw)" stroke="#3f6c8c" stroke-width="1"/>
           <path d="M6 20c4-2.6 8-2.6 12 0s8 2.6 12 0 8-2.6 12 0" stroke="#4cc9f0" stroke-width="1.6" stroke-linecap="round" fill="none"/>
@@ -461,9 +468,9 @@
           <rect x="9" y="35.4" width="9" height="2.6" rx="1.3" fill="#c9d4e4" stroke="#3f6c8c" stroke-width=".7"/>
           <circle cx="11" cy="36.7" r="1.6" fill="#ff8a2a" opacity=".95"><animate attributeName="opacity" values="1;.5;1" dur="2s" repeatCount="indefinite"/></circle>
           <g fill="#4cc9f0"><circle cx="20" cy="36.7" r=".7"/><circle cx="23" cy="36.7" r=".7"/><circle cx="26" cy="36.7" r=".7"/></g>
-        </svg></div><b>Fish farms &amp; aquaculture</b><span>Constant-temperature tank heating</span></div>
+        </svg></div><b>Fish farms &amp; aquaculture</b><span>Constant-temperature tank heating</span><span class="mstat"><b>$300B+</b><i>global aquaculture market / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-pw" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#151f30"/></linearGradient></defs>
           <rect x="8" y="10" width="32" height="30" rx="3" fill="url(#g-pw)" stroke="#4a5a75" stroke-width="1"/>
           <path d="M14 10v-3h20v3" stroke="#4a5a75" stroke-width="1.2"/>
@@ -473,9 +480,9 @@
           <g stroke="#4cc9f0" stroke-width="1.1" stroke-linecap="round"><path d="M15 15l2.5 2.5M33 15l-2.5 2.5"/><path d="M13 33.5l2 -2M35 33.5l-2 -2"/></g>
           <g fill="#8fe3ff"><circle cx="18.5" cy="20" r=".8"/><circle cx="29.5" cy="20" r=".8"/><circle cx="18.5" cy="30.5" r=".8"/><circle cx="29.5" cy="30.5" r=".8"/></g>
           <rect x="12" y="41.5" width="5" height="2" rx="1" fill="#4a5a75"/><rect x="31" y="41.5" width="5" height="2" rx="1" fill="#4a5a75"/>
-        </svg></div><b>Industrial parts washers</b><span>24/7 heated process baths</span></div>
+        </svg></div><b>Industrial parts washers</b><span>24/7 heated process baths</span><span class="mstat"><b>$2.2B</b><i>global parts-washer market / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-ho" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff8a2a"/><stop offset="1" stop-color="#ffb066"/></linearGradient></defs>
           <path d="M8 38V22a2.5 2.5 0 0 1 2.5-2.5h0A2.5 2.5 0 0 1 13 22v9h27a4 4 0 0 0-4-4H20" stroke="#4a5a75" stroke-width="1.4" fill="none"/>
           <path d="M13 31h27v7" stroke="#4a5a75" stroke-width="1.4" fill="none"/>
@@ -488,9 +495,9 @@
             <path d="M34 16c1.5-2 1.5-3.5 0-5.5"><animate attributeName="opacity" values=".9;.35;.9" dur="2.6s" repeatCount="indefinite"/></path>
           </g>
           <circle cx="41" cy="21" r="2" fill="#ffb066" opacity=".85"/><path d="M41 23v3" stroke="#4a5a75" stroke-width="1.1"/>
-        </svg></div><b>Hotels &amp; hospitality</b><span>Around-the-clock hot water demand</span></div>
+        </svg></div><b>Hotels &amp; hospitality</b><span>Around-the-clock hot water demand</span><span class="mstat"><b>$100B+</b><i>U.S. hotel room revenue / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-po" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2a6f96"/><stop offset="1" stop-color="#123049"/></linearGradient></defs>
           <path d="M7 22h34v13a5 5 0 0 1-5 5H12a5 5 0 0 1-5-5z" fill="url(#g-po)" stroke="#3f6c8c" stroke-width="1"/>
           <path d="M7 22c3.4-2.4 6.8-2.4 10.2 0s6.8 2.4 10.2 0 6.8-2.4 10.2 0" stroke="#8fe3ff" stroke-width="1.7" stroke-linecap="round" fill="none"/>
@@ -499,9 +506,9 @@
           <circle cx="17" cy="33" r="2.2" fill="#ff8a2a"><animate attributeName="opacity" values="1;.5;1" dur="2.2s" repeatCount="indefinite"/></circle>
           <circle cx="17" cy="33" r="4.6" stroke="#ffb066" stroke-width=".8" fill="none" opacity=".5"/>
           <circle cx="17" cy="33" r="6.8" stroke="#ffb066" stroke-width=".6" fill="none" opacity=".25"/>
-        </svg></div><b>Pools &amp; aquatic centers</b><span>Year-round water heating</span></div>
+        </svg></div><b>Pools &amp; aquatic centers</b><span>Year-round water heating</span><span class="mstat"><b>300,000+</b><i>U.S. public &amp; commercial pools</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-gr" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1d3f57" stop-opacity=".55"/><stop offset="1" stop-color="#0e2334" stop-opacity=".8"/></linearGradient></defs>
           <path d="M8 40V20L24 9l16 11v20z" fill="url(#g-gr)" stroke="#4a5a75" stroke-width="1.2"/>
           <path d="M24 9v31M8 20l16-11 16 11M16 14.5V40M32 14.5V40M8 28h32" stroke="#3f6c8c" stroke-width=".8" opacity=".8"/>
@@ -509,9 +516,9 @@
           <path d="M24 31c-3.2-.4-4.8-2-5.2-5 3.2.4 4.8 2 5.2 5zM24 29c3.2-.4 4.8-2 5.2-5-3.2.4-4.8 2-5.2 5z" fill="#4cc9f0" opacity=".9"/>
           <rect x="20.5" y="37" width="7" height="4" rx="1" fill="#ff8a2a" opacity=".85"/>
           <path d="M10 40h28" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round" opacity=".8"><animate attributeName="opacity" values=".8;.35;.8" dur="2.8s" repeatCount="indefinite"/></path>
-        </svg></div><b>Greenhouses</b><span>Root-zone &amp; irrigation warmth</span></div>
+        </svg></div><b>Greenhouses</b><span>Root-zone &amp; irrigation warmth</span><span class="mstat"><b>$18B</b><i>U.S. horticulture sales / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-br" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb066"/><stop offset="1" stop-color="#c96a1a"/></linearGradient></defs>
           <path d="M13 20a11 11 0 0 1 22 0v14a4 4 0 0 1-4 4H17a4 4 0 0 1-4-4z" fill="url(#g-br)" stroke="#8a4a12" stroke-width="1.1"/>
           <path d="M13 22h22M13 30h22" stroke="#8a4a12" stroke-width=".9" opacity=".7"/>
@@ -523,9 +530,9 @@
           </g>
           <circle cx="36.5" cy="24" r="3.4" fill="#0e1826" stroke="#4cc9f0" stroke-width="1"/><path d="M36.5 24l1.7-1.4" stroke="#8fe3ff" stroke-width="1" stroke-linecap="round"/>
           <rect x="18" y="38" width="12" height="2.4" rx="1.2" fill="#ff8a2a" opacity=".7"/>
-        </svg></div><b>Breweries &amp; distilleries</b><span>Brew kettles &amp; hot-water tanks</span></div>
+        </svg></div><b>Breweries &amp; distilleries</b><span>Brew kettles &amp; hot-water tanks</span><span class="mstat"><b>9,500+</b><i>U.S. craft breweries operating</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-da" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d6e0ee"/><stop offset=".5" stop-color="#9fb2cc"/><stop offset="1" stop-color="#77879f"/></linearGradient></defs>
           <path d="M16 15h16v3c2.4 2 3.4 4.6 3.4 8v10a4 4 0 0 1-4 4H16.6a4 4 0 0 1-4-4V26c0-3.4 1-6 3.4-8z" fill="url(#g-da)" stroke="#4a5a75" stroke-width="1.1"/>
           <rect x="14.5" y="11" width="19" height="4.4" rx="2.2" fill="#c9d4e4" stroke="#4a5a75" stroke-width="1"/>
@@ -534,9 +541,9 @@
           <path d="M24 3.5c2.2 2.8 3.4 4.6 3.4 6.2a3.4 3.4 0 0 1-6.8 0c0-1.6 1.2-3.4 3.4-6.2z" fill="#8fe3ff" opacity=".9"/>
           <path d="M15 40.5h18" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><animate attributeName="opacity" values=".9;.4;.9" dur="2.6s" repeatCount="indefinite"/></path>
           <circle cx="24" cy="31" r="2" fill="#ff8a2a" opacity=".85"/>
-        </svg></div><b>Dairy &amp; food processing</b><span>Sanitizing hot-water loads</span></div>
+        </svg></div><b>Dairy &amp; food processing</b><span>Sanitizing hot-water loads</span><span class="mstat"><b>$124B</b><i>U.S. dairy processing / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-la" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#151f30"/></linearGradient><linearGradient id="g-lw" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4cc9f0"/><stop offset="1" stop-color="#1d5c7d"/></linearGradient></defs>
           <rect x="9" y="7" width="30" height="34" rx="3" fill="url(#g-la)" stroke="#4a5a75" stroke-width="1"/>
           <path d="M9 13.5h30" stroke="#4a5a75" stroke-width=".9"/>
@@ -547,9 +554,9 @@
           <path d="M17.6 25.6c2.2 1.8 4.4-1.6 6.4-.2s4.2 2 6.4.4" stroke="#8fe3ff" stroke-width="1.3" stroke-linecap="round" fill="none"/>
           <path d="M18.6 29.8c2 1.4 3.8-1 5.4 0s3.6 1.4 5.4.2" stroke="#0e2334" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".6"/>
           <circle cx="20" cy="23" r="1" fill="#e8f7ff" opacity=".8"/>
-        </svg></div><b>Commercial laundry</b><span>High-volume wash water</span></div>
+        </svg></div><b>Commercial laundry</b><span>High-volume wash water</span><span class="mstat"><b>$7B</b><i>U.S. laundromat industry / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-cw" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff8a2a"/><stop offset="1" stop-color="#ffb066"/></linearGradient></defs>
           <path d="M7 8h8M7 8v26" stroke="#4a5a75" stroke-width="1.6" stroke-linecap="round"/>
           <path d="M41 8h-8M41 8v26" stroke="#4a5a75" stroke-width="1.6" stroke-linecap="round"/>
@@ -566,9 +573,9 @@
           <path d="M14.5 33.4l2-5a2.4 2.4 0 0 1 2.2-1.5h10.6a2.4 2.4 0 0 1 2.2 1.5l2 5" stroke="#8a4a12" stroke-width="1.2" fill="#12233a"/>
           <circle cx="15.5" cy="39.8" r="2.6" fill="#0e1826" stroke="#7b8ba5" stroke-width="1.2"/>
           <circle cx="32.5" cy="39.8" r="2.6" fill="#0e1826" stroke="#7b8ba5" stroke-width="1.2"/>
-        </svg></div><b>Car &amp; fleet washes</b><span>Heated wash &amp; rinse water</span></div>
+        </svg></div><b>Car &amp; fleet washes</b><span>Heated wash &amp; rinse water</span><span class="mstat"><b>$15B</b><i>U.S. car-wash market / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-cs" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3a4a63"/><stop offset="1" stop-color="#202c40"/></linearGradient></defs>
           <g stroke="#8fe3ff" stroke-width="1.4" stroke-linecap="round">
             <path d="M24 4v12M24 4l-3 3M24 4l3 3M24 16l-3-3M24 16l3-3"/>
@@ -579,9 +586,9 @@
           <path d="M9.5 24.5h2.4M14.8 24.5h2.4M20.1 24.5h2.4M25.4 24.5h2.4M30.7 24.5h2.4M36 24.5h2.4" stroke="#5c6d88" stroke-width=".9"/>
           <path d="M9 35c2.5-4 5-4 7.5 0s5 4 7.5 0 5-4 7.5 0 5 4 7.5 0" stroke="#ff8a2a" stroke-width="2" stroke-linecap="round" fill="none"><animate attributeName="opacity" values="1;.55;1" dur="2.4s" repeatCount="indefinite"/></path>
           <path d="M9 41c2.5-4 5-4 7.5 0s5 4 7.5 0 5-4 7.5 0 5 4 7.5 0" stroke="#ffb066" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".55"/>
-        </svg></div><b>Cold-storage floors</b><span>Under-floor frost-protection glycol</span></div>
+        </svg></div><b>Cold-storage floors</b><span>Under-floor frost-protection glycol</span><span class="mstat"><b>$42B</b><i>U.S. cold-storage market / yr</i></span></div>
 
-        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="52" height="52" viewBox="0 0 48 48" fill="none">
+        <div class="app reveal"><div class="aicon"><svg aria-hidden="true" width="80" height="80" viewBox="0 0 48 48" fill="none">
           <defs><linearGradient id="g-eb" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d6e0ee"/><stop offset=".5" stop-color="#9fb2cc"/><stop offset="1" stop-color="#77879f"/></linearGradient></defs>
           <rect x="8" y="9" width="14" height="30" rx="6" fill="url(#g-eb)" stroke="#4a5a75" stroke-width="1.1"/>
           <circle cx="15" cy="27" r="3.4" fill="#0e1826" stroke="#8a4a12" stroke-width="1"/>
@@ -593,8 +600,9 @@
           </g>
           <path d="M30 18.5h12M30 31.5h12" stroke="#ffb066" stroke-width="1.1" opacity=".65"/>
           <g fill="#4cc9f0"><circle cx="24.5" cy="15" r=".8"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle><circle cx="24.5" cy="35" r=".8"><animate attributeName="opacity" values=".2;1;.2" dur="1.6s" repeatCount="indefinite"/></circle></g>
-        </svg></div><b>Electric boilers &amp; hydronic</b><span>Element-port boilers &amp; buffer tanks</span></div>
+        </svg></div><b>Electric boilers &amp; hydronic</b><span>Element-port boilers &amp; buffer tanks</span><span class="mstat"><b>$19B</b><i>global hydronic HVAC / yr</i></span></div>
       </div>
+      <p class="gridnote reveal">Market figures are approximate and conservatively rounded — U.S. Census Bureau, USDA, AHLA, PHTA, Brewers Association, IBISWorld, Grand View Research, Fortune Business Insights (2024–2025).</p>
     </div>
   </section>
 

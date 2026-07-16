@@ -174,10 +174,12 @@
     transition:transform .2s,border-color .2s,box-shadow .2s}
   .workchip:hover{transform:translateY(-3px);border-color:rgba(255,138,42,.5);
     box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 30px rgba(255,138,42,.1)}
-  .workchip .wicon{flex:0 0 66px;width:66px;height:66px;border-radius:16px;display:grid;place-items:center;
-    background:radial-gradient(70% 70% at 50% 40%,rgba(255,138,42,.2),rgba(76,201,240,.1) 75%,transparent);
-    border:1px solid var(--line2);box-shadow:0 0 22px rgba(255,138,42,.13)}
-  .workchip .wicon svg{filter:drop-shadow(0 0 6px rgba(255,138,42,.35)) drop-shadow(0 0 3px rgba(76,201,240,.3))}
+  .workchip .wicon{flex:0 0 88px;width:88px;height:88px;display:grid;place-items:center}
+  .workchip .wicon img{width:100%;height:100%;object-fit:cover;
+    -webkit-mask-image:radial-gradient(ellipse at center,#000 45%,transparent 78%);
+    mask-image:radial-gradient(ellipse at center,#000 45%,transparent 78%);
+    filter:drop-shadow(0 0 10px rgba(255,138,42,.18));transition:transform .3s}
+  .workchip:hover .wicon img{transform:scale(1.1)}
   .workchip .wtext b{display:block;font-size:.95rem;font-weight:700;line-height:1.3}
   .appgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
   @media(max-width:1140px){.appgrid{grid-template-columns:repeat(3,1fr)}}
@@ -480,70 +482,17 @@
       <p class="sub reveal">ThermalCore modules can run any computing job that tolerates being paced by the
         tank's demand for heat — the workload simply decides who pays for the electricity's first job.</p>
       <div class="workchips">
-        <div class="workchip reveal"><span class="wicon"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 48 48" fill="none">
-          <defs><linearGradient id="wc1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb066"/><stop offset="1" stop-color="#c96a1a"/></linearGradient></defs>
-          <circle cx="24" cy="24" r="16" fill="url(#wc1)" stroke="#8a4a12" stroke-width="1.4"/>
-          <circle cx="24" cy="24" r="11.5" fill="none" stroke="#8a4a12" stroke-width="1" opacity=".65"/>
-          <path d="M26.5 15.5l-6.5 9h5l-3.5 8 8.5-10h-5.5z" fill="#3a1c05"/>
-          <path d="M26 15l-6.5 9h5l-3.5 8 8.5-10H24z" fill="#fff3e4"/>
-          <g fill="#8fe3ff"><circle cx="40" cy="10" r="1.5"><animate attributeName="opacity" values="1;.2;1" dur="2s" repeatCount="indefinite"/></circle><circle cx="7" cy="34" r="1.2"><animate attributeName="opacity" values=".2;1;.2" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="42" cy="30" r="1"/></g>
-        </svg></span><span class="wtext"><b>Bitcoin &amp; crypto mining</b><em class="wprice">$0.01–0.04<small>/kWh</small></em></span></div>
+        <div class="workchip reveal"><span class="wicon"><img src="icons/wl01.jpg" alt="" loading="lazy"></span><span class="wtext"><b>Bitcoin &amp; crypto mining</b><em class="wprice">$0.01–0.04<small>/kWh</small></em></span></div>
 
-        <div class="workchip reveal"><span class="wicon"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 48 48" fill="none">
-          <defs><linearGradient id="wc2" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3a4a63"/><stop offset="1" stop-color="#1c2637"/></linearGradient></defs>
-          <path d="M13 32a8 8 0 0 1 1.5-15.9A10 10 0 0 1 34 13.5 7 7 0 0 1 36.5 27z" fill="url(#wc2)" stroke="#4cc9f0" stroke-width="1.4"/>
-          <g stroke="#4cc9f0" stroke-width="1.6" stroke-linecap="round">
-            <path d="M16 22h6M16 26h9"/><path d="M28 22h4" opacity=".6"/>
-          </g>
-          <g fill="#ffb066"><circle cx="17.5" cy="22" r="1.1"/><circle cx="17.5" cy="26" r="1.1"/></g>
-          <g stroke="#8fe3ff" stroke-width="1.8" stroke-linecap="round">
-            <path d="M18 40v-4M18 36l-2.4 2.4M18 36l2.4 2.4"><animate attributeName="opacity" values="1;.35;1" dur="1.8s" repeatCount="indefinite"/></path>
-            <path d="M28 42v-5M28 37l-2.4 2.4M28 37l2.4 2.4"><animate attributeName="opacity" values=".35;1;.35" dur="1.8s" repeatCount="indefinite"/></path>
-          </g>
-        </svg></span><span class="wtext"><b>Rented cloud &amp; batch compute</b><em class="wprice">$0.25–0.50<small>/kWh</small></em></span></div>
+        <div class="workchip reveal"><span class="wicon"><img src="icons/wl02.jpg" alt="" loading="lazy"></span><span class="wtext"><b>Rented cloud &amp; batch compute</b><em class="wprice">$0.25–0.50<small>/kWh</small></em></span></div>
 
-        <div class="workchip reveal"><span class="wicon"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 48 48" fill="none">
-          <defs><linearGradient id="wc3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#141d2e"/></linearGradient></defs>
-          <rect x="14" y="14" width="20" height="20" rx="4" fill="url(#wc3)" stroke="#4cc9f0" stroke-width="1.5"/>
-          <rect x="19.5" y="19.5" width="9" height="9" rx="2" fill="#ff8a2a" opacity=".9"><animate attributeName="opacity" values=".9;.5;.9" dur="2.2s" repeatCount="indefinite"/></rect>
-          <g stroke="#4a5a75" stroke-width="1.6" stroke-linecap="round"><path d="M18 14v-4M24 14v-4M30 14v-4M18 34v4M24 34v4M30 34v4M14 18h-4M14 24h-4M14 30h-4M34 18h4M34 24h4M34 30h4"/></g>
-          <g fill="#8fe3ff"><circle cx="10" cy="18" r="1.4"/><circle cx="38" cy="30" r="1.4"/><circle cx="24" cy="6" r="1.4"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></circle></g>
-          <path d="M39 8l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z" fill="#f5c04e"/>
-        </svg></span><span class="wtext"><b>AI inference &amp; image generation</b><em class="wprice">$1–5<small>/kWh</small></em></span></div>
+        <div class="workchip reveal"><span class="wicon"><img src="icons/wl03.jpg" alt="" loading="lazy"></span><span class="wtext"><b>AI inference &amp; image generation</b><em class="wprice">$1–5<small>/kWh</small></em></span></div>
 
-        <div class="workchip reveal"><span class="wicon"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 48 48" fill="none">
-          <defs><linearGradient id="wc4" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#151f30"/></linearGradient></defs>
-          <rect x="7" y="9" width="34" height="23" rx="3" fill="url(#wc4)" stroke="#4a5a75" stroke-width="1.4"/>
-          <path d="M18 36h12M20 32v4M28 32v4" stroke="#4a5a75" stroke-width="1.6" stroke-linecap="round"/>
-          <g stroke="#4cc9f0" stroke-width="1.3" fill="none">
-            <path d="M17 15l7-3 7 3v8l-7 3-7-3z"/><path d="M17 15l7 3 7-3M24 18v8"/>
-          </g>
-          <circle cx="35" cy="27" r="5" fill="#ff8a2a"/>
-          <path d="M33.6 24.8l4 2.2-4 2.2z" fill="#04070f"/>
-        </svg></span><span class="wtext"><b>3D &amp; video rendering</b><em class="wprice">$0.25–0.50<small>/kWh</small></em></span></div>
+        <div class="workchip reveal"><span class="wicon"><img src="icons/wl04.jpg" alt="" loading="lazy"></span><span class="wtext"><b>3D &amp; video rendering</b><em class="wprice">$0.25–0.50<small>/kWh</small></em></span></div>
 
-        <div class="workchip reveal"><span class="wicon"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 48 48" fill="none">
-          <defs><linearGradient id="wc5" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1d5c7d"/><stop offset="1" stop-color="#0e2334"/></linearGradient></defs>
-          <path d="M20 8v9L11 33a4.5 4.5 0 0 0 4 6.6h18a4.5 4.5 0 0 0 4-6.6l-9-16V8" stroke="#c9d4e4" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <path d="M17.6 26l-4.4 8a3 3 0 0 0 2.7 4.4h16.2a3 3 0 0 0 2.7-4.4l-4.4-8c-4-2.4-8.8-2.4-12.8 0z" fill="url(#wc5)"/>
-          <path d="M17 6.8h14" stroke="#c9d4e4" stroke-width="1.8" stroke-linecap="round"/>
-          <g fill="#8fe3ff"><circle cx="21" cy="31" r="1.3"><animate attributeName="cy" values="31;28;31" dur="2.6s" repeatCount="indefinite"/></circle><circle cx="27" cy="34" r="1.6"><animate attributeName="cy" values="34;30;34" dur="2.2s" repeatCount="indefinite"/></circle><circle cx="24" cy="36" r="1"/></g>
-          <ellipse cx="24" cy="24" rx="19" ry="6.5" stroke="#ffb066" stroke-width="1" fill="none" opacity=".55" transform="rotate(-18 24 24)"/>
-          <circle cx="41" cy="18.5" r="1.7" fill="#ffb066"/>
-        </svg></span><span class="wtext"><b>Scientific &amp; research computing</b><em class="wprice">$1–5<small>/kWh</small></em></span></div>
+        <div class="workchip reveal"><span class="wicon"><img src="icons/wl05.jpg" alt="" loading="lazy"></span><span class="wtext"><b>Scientific &amp; research computing</b><em class="wprice">$1–5<small>/kWh</small></em></span></div>
 
-        <div class="workchip reveal"><span class="wicon"><svg aria-hidden="true" width="42" height="42" viewBox="0 0 48 48" fill="none">
-          <defs><linearGradient id="wc6" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3a4a63"/><stop offset="1" stop-color="#1c2637"/></linearGradient></defs>
-          <ellipse cx="24" cy="11" rx="14" ry="5" fill="url(#wc6)" stroke="#4cc9f0" stroke-width="1.3"/>
-          <path d="M10 11v10c0 2.8 6.3 5 14 5s14-2.2 14-5V11" fill="url(#wc6)" stroke="#4cc9f0" stroke-width="1.3"/>
-          <path d="M10 21v10c0 2.8 6.3 5 14 5s14-2.2 14-5V21" fill="url(#wc6)" stroke="#4cc9f0" stroke-width="1.3"/>
-          <path d="M10 21c0 2.8 6.3 5 14 5s14-2.2 14-5M10 31c0 2.8 6.3 5 14 5s14-2.2 14-5" stroke="#4cc9f0" stroke-width="1.1" fill="none" opacity=".8"/>
-          <g fill="#ffb066">
-            <circle cx="15" cy="18" r="1.2"><animate attributeName="cy" values="18;28;38" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.8;0" dur="2.8s" repeatCount="indefinite"/></circle>
-            <circle cx="33" cy="16" r="1.2"><animate attributeName="cy" values="16;26;36" dur="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.8;0" dur="3.4s" repeatCount="indefinite"/></circle>
-          </g>
-          <circle cx="24" cy="11" r="2" fill="#8fe3ff" opacity=".9"><animate attributeName="opacity" values=".9;.4;.9" dur="2s" repeatCount="indefinite"/></circle>
-        </svg></span><span class="wtext"><b>Data processing &amp; analytics</b><em class="wprice">$1–5<small>/kWh</small></em></span></div>
+        <div class="workchip reveal"><span class="wicon"><img src="icons/wl06.jpg" alt="" loading="lazy"></span><span class="wtext"><b>Data processing &amp; analytics</b><em class="wprice">$1–5<small>/kWh</small></em></span></div>
       </div>
       <p class="gridnote reveal" style="text-align:left">What a kilowatt-hour of computing sells for, July 2026 — mining from live hashprice across common ASIC hardware; GPU-marketplace rates (loaded) for rented compute and rendering; published enterprise batch-compute list rates for AI, scientific, and data workloads. Gross revenue per kWh of electricity consumed; rates move constantly and utilization varies.</p>
 

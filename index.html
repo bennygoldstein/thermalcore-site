@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermalCore — The Water-Heater Element That Computes</title>
+<meta name="description" content="ThermalCore is a sealed compute module shaped like a standard screw-in heating element. Same port, same heat — but every kilowatt-hour does two jobs: paid computation and hot water. Patent pending.">
+<meta property="og:title" content="ThermalCore — One kilowatt-hour. Two jobs.">
+<meta property="og:description" content="The compute module that screws into the water heater you already own. Patent pending.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thermalcore.energy">
+<meta property="og:image" content="https://thermalcore.energy/01.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a2a'/%3E%3Cstop offset='1' stop-color='%234cc9f0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%23060b16'/%3E%3Cpath d='M16 5c-3 4.4-7 7.6-7 12a7 7 0 0 0 14 0c0-4.4-4-7.6-7-12z' fill='none' stroke='url(%23g)' stroke-width='2.2'/%3E%3Cpath d='M13.4 19.6l2.2-2.2m1-1l2-2M13 16.2l1.8 1.8m1.2 1.2l1.6 1.6' stroke='%234cc9f0' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>document.documentElement.className+=' js'</script>
+<style>
+  :root{
+    --bg:#04070f; --bg2:#070d1a; --panel:rgba(255,255,255,.035); --panel2:rgba(255,255,255,.06);
+    --line:rgba(148,163,184,.14); --line2:rgba(148,163,184,.26);
+    --text:#e8eefa; --muted:#9db0cb; --dim:#8494ad;
+    --orange:#ff8a2a; --orange-soft:#ffb066; --cyan:#4cc9f0; --cyan-soft:#8fe3ff;
+    --grad:linear-gradient(92deg,#ff8a2a 0%,#ffb066 45%,#4cc9f0 100%);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:16px; line-height:1.6; overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:Sora,Inter,sans-serif}
+  .mono{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  /* ---------- background field ---------- */
+  .field{position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(55% 45% at 82% -5%, rgba(76,201,240,.13) 0%, transparent 60%),
+    radial-gradient(50% 42% at 8% 12%, rgba(255,138,42,.11) 0%, transparent 55%),
+    radial-gradient(60% 50% at 50% 115%, rgba(255,138,42,.07) 0%, transparent 60%),
+    var(--bg);}
+  .gridlines{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background:
+    linear-gradient(rgba(148,163,184,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,.045) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(70% 60% at 50% 20%, #000 0%, transparent 100%);
+    -webkit-mask-image:radial-gradient(70% 60% at 50% 20%, #000 0%, transparent 100%);}
+
+  /* ---------- nav ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;
+    background:rgba(4,7,15,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:Sora;font-weight:800;font-size:1.06rem;letter-spacing:.04em}
+  .logo .mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    background:linear-gradient(135deg,rgba(255,138,42,.18),rgba(76,201,240,.18));
+    border:1px solid var(--line2);box-shadow:0 0 18px rgba(255,138,42,.25)}
+  .logo .tld{color:var(--cyan);font-weight:600}
+  .navlinks{display:flex;gap:2px;align-items:center}
+  .navlinks a{padding:8px 11px;border-radius:999px;font-size:.84rem;font-weight:600;color:var(--muted);
+    white-space:nowrap;transition:color .2s,background .2s}
+  .navlinks a:hover{color:var(--text)}
+  .navlinks a.active{color:var(--cyan-soft);background:rgba(76,201,240,.14)}
+  .navcta{display:flex;align-items:center;gap:10px}
+  .chip{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-soft);
+    border:1px solid rgba(76,201,240,.35);background:rgba(76,201,240,.08);padding:6px 12px;border-radius:999px;white-space:nowrap}
+  .burger{display:none;background:none;border:1px solid var(--line2);color:var(--text);
+    width:40px;height:40px;border-radius:10px;font-size:1.1rem;cursor:pointer}
+  .mobilemenu{display:none;flex-direction:column;gap:2px;padding:12px 24px 18px;border-top:1px solid var(--line);
+    background:rgba(4,7,15,.97);max-height:calc(100vh - 66px);max-height:calc(100dvh - 66px);overflow-y:auto}
+  .mobilemenu a{padding:11px 12px;border-radius:10px;font-weight:600;color:var(--muted)}
+  .mobilemenu a.active{color:var(--cyan-soft);background:rgba(76,201,240,.14)}
+  @media(max-width:1140px){.navlinks,.navcta .chip{display:none}.burger{display:block}.mobilemenu.open{display:flex}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:150px 0 40px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+  .badge{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--orange-soft);border:1px solid rgba(255,138,42,.4);
+    background:rgba(255,138,42,.08);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange);
+    animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1{font-size:clamp(2.3rem,5.2vw,3.7rem);line-height:1.06;font-weight:800;letter-spacing:-.02em}
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{margin-top:20px;font-size:1.11rem;color:var(--muted);max-width:34em}
+  .cta-row{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:12px;font-weight:700;
+    font-size:.95rem;transition:transform .18s,box-shadow .18s;cursor:pointer;border:none}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--grad);color:#04070f;box-shadow:0 8px 30px rgba(255,138,42,.35)}
+  .btn-primary:hover{box-shadow:0 12px 40px rgba(255,138,42,.5)}
+  .btn-ghost{background:var(--panel);border:1px solid var(--line2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--cyan);box-shadow:0 0 24px rgba(76,201,240,.2)}
+  .hero-visual{position:relative}
+  .glowframe{border-radius:22px;overflow:hidden;border:1px solid var(--line2);
+    box-shadow:0 0 0 1px rgba(255,138,42,.15),0 24px 80px rgba(0,0,0,.6),0 0 90px rgba(255,138,42,.18)}
+  .hero-visual .caption{margin-top:12px;font-size:.76rem;color:var(--dim);text-align:center}
+
+  /* ---------- stat band ---------- */
+  .stats{margin:56px 0 0;border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    display:grid;grid-template-columns:repeat(4,1fr)}
+  .stats>div{padding:26px 22px;text-align:center;border-left:1px solid var(--line)}
+  .stats>div:first-child{border-left:none}
+  .stats b{display:block;font-family:Sora;font-size:1.65rem;font-weight:800;color:var(--orange-soft)}
+  .stats span{font-size:.82rem;color:var(--muted)}
+  @media(max-width:920px){.stats{grid-template-columns:repeat(2,1fr)}.stats>div:nth-child(3){border-left:none}
+    .stats>div{border-top:1px solid var(--line)}.stats>div:nth-child(-n+2){border-top:none}}
+
+  /* ---------- sections ---------- */
+  section{padding:96px 0;scroll-margin-top:78px}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:.76rem;font-weight:600;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+  .kicker::before{content:"// "}
+  h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.015em;line-height:1.15;max-width:22em}
+  .sub{margin-top:16px;color:var(--muted);max-width:62ch;font-size:1.04rem}
+
+  .cards{display:grid;gap:18px;margin-top:44px}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  .cards.c2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:920px){.cards.c3,.cards.c2{grid-template-columns:1fr}}
+  .card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;
+    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+    transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-4px);border-color:rgba(255,138,42,.45);box-shadow:0 16px 50px rgba(0,0,0,.5),0 0 40px rgba(255,138,42,.1)}
+  .card .icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px;
+    background:linear-gradient(135deg,rgba(255,138,42,.16),rgba(76,201,240,.14));border:1px solid var(--line2)}
+  .card h3{font-size:1.08rem;font-weight:700;margin-bottom:9px}
+  .card p{font-size:.92rem;color:var(--muted)}
+  .card .step{position:absolute;top:18px;right:22px;font-family:Sora;font-size:2.2rem;font-weight:800;
+    color:rgba(148,163,184,.14)}
+  .tag{display:inline-block;margin-top:auto;align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--orange-soft);border:1px solid rgba(255,138,42,.3);border-radius:999px;padding:4px 10px}
+  .card p{margin-bottom:14px}
+
+  /* problem section highlight numbers */
+  .bignum b{display:block;font-family:Sora;font-size:2rem;font-weight:800;color:var(--orange-soft);margin-bottom:6px}
+
+  /* how it works image */
+  .wideframe{margin-top:44px;border-radius:22px;overflow:hidden;border:1px solid var(--line2);
+    box-shadow:0 24px 80px rgba(0,0,0,.55)}
+  .framecaption{margin-top:12px;font-size:.76rem;color:var(--dim);text-align:center}
+
+  /* ---------- product split ---------- */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;margin-top:44px;align-items:stretch}
+  @media(max-width:920px){.split{grid-template-columns:1fr}}
+  .variants{display:flex;flex-direction:column;gap:14px}
+  .variant{border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));transition:border-color .2s}
+  .variant:hover{border-color:rgba(76,201,240,.5)}
+  .variant h3{font-size:1rem;display:flex;align-items:center;gap:10px}
+  .variant h3 .n{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--cyan);border:1px solid rgba(76,201,240,.35);
+    border-radius:6px;padding:2px 7px}
+  .variant p{margin-top:7px;font-size:.89rem;color:var(--muted)}
+  .snakepanel{border-radius:22px;overflow:hidden;border:1px solid var(--line2);position:relative;min-height:420px;
+    box-shadow:0 24px 80px rgba(0,0,0,.55)}
+  .snakepanel img{position:absolute;width:210%;max-width:none;height:auto;top:-4%;right:-6%}
+  .snakecol{display:flex;flex-direction:column}
+  .snakecol .snakepanel{flex:1}
+
+  /* ---------- why now clocks ---------- */
+  .clock b{display:block;font-family:Sora;font-size:1.5rem;font-weight:800;color:var(--cyan-soft);margin-bottom:6px}
+
+  /* ---------- patent panel ---------- */
+  .patentpanel{margin-top:44px;border:1px solid rgba(255,138,42,.35);border-radius:var(--radius);
+    background:linear-gradient(135deg,rgba(255,138,42,.07),rgba(76,201,240,.05));padding:38px 36px}
+  .patentpanel .appno{font-family:"JetBrains Mono",monospace;font-size:1.05rem;color:var(--orange-soft)}
+  .claimgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  @media(max-width:920px){.claimgrid{grid-template-columns:1fr}}
+  .claim{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:rgba(4,7,15,.5)}
+  .claim b{font-size:.92rem}
+  .claim p{font-size:.82rem;color:var(--muted);margin-top:5px}
+
+  /* ---------- about ---------- */
+  .about{display:grid;grid-template-columns:.9fr 1.4fr;gap:44px;margin-top:44px;align-items:start}
+  @media(max-width:920px){.about{grid-template-columns:1fr}}
+  .monocard{border:1px solid var(--line2);border-radius:var(--radius);padding:36px;text-align:center;
+    background:linear-gradient(160deg,rgba(255,138,42,.08),rgba(76,201,240,.06))}
+  .monogram{width:96px;height:96px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;
+    font-family:Sora;font-size:2rem;font-weight:800;color:#04070f;background:var(--grad);
+    box-shadow:0 0 20px rgba(255,138,42,.25)}
+  .monocard b{font-family:Sora;font-size:1.15rem}
+  .monocard p{font-size:.85rem;color:var(--muted);margin-top:6px}
+  .bio p{color:var(--muted);margin-bottom:14px}
+  .bio strong{color:var(--text)}
+
+  /* ---------- contact ---------- */
+  .contactpanel{border-radius:26px;padding:60px 40px;text-align:center;position:relative;overflow:hidden;
+    border:1px solid var(--line2);
+    background:radial-gradient(70% 100% at 50% 0%,rgba(255,138,42,.14) 0%,transparent 60%),
+               radial-gradient(60% 90% at 80% 100%,rgba(76,201,240,.1) 0%,transparent 55%),var(--bg2)}
+  .contactpanel h2{margin:0 auto}
+  .contactpanel .sub{margin-left:auto;margin-right:auto}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);background:rgba(4,7,15,.85);padding:54px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px}
+  @media(max-width:920px){.fgrid{grid-template-columns:1fr}}
+  .fgrid h4{font-size:.85rem;font-weight:700;margin-bottom:14px}
+  .fgrid a,.fgrid p{display:block;font-size:.86rem;color:var(--muted);margin-bottom:9px}
+  .fgrid a:hover{color:var(--cyan-soft)}
+  .fgrid a.logo,.fgrid a.logo:hover{display:flex;font-size:1.06rem;color:var(--text)}
+  .fbottom{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;font-size:.76rem;color:var(--dim)}
+
+  /* ---------- reveal ---------- */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="field"></div>
+<div class="gridlines"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="ThermalCore home">
+      <span class="mark">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M16 4c-3.4 5-8 8.6-8 13.6a8 8 0 0 0 16 0C24 12.6 19.4 9 16 4z" stroke="url(#lg)" stroke-width="2.4"/><path d="M12.8 20.4l2.4-2.4m1.2-1.2l2.4-2.4M12.4 16.4l2 2m1.4 1.4l1.8 1.8" stroke="#4cc9f0" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="lg" x1="8" y1="4" x2="24" y2="26"><stop stop-color="#ff8a2a"/><stop offset="1" stop-color="#4cc9f0"/></linearGradient></defs></svg>
+      </span>
+      THERMALCORE<span class="tld">.energy</span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#problem">The Problem</a>
+      <a href="#how">How It Works</a>
+      <a href="#product">Product</a>
+      <a href="#why-now">Why Now</a>
+      <a href="#markets">Markets</a>
+      <a href="#patent">Patent</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="navcta">
+      <span class="chip">Patent Pending</span>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobilemenu">☰</button>
+    </div>
+  </div>
+  <nav class="mobilemenu" id="mobilemenu" aria-label="Mobile">
+    <a href="#problem">The Problem</a>
+    <a href="#how">How It Works</a>
+    <a href="#product">Product</a>
+    <a href="#why-now">Why Now</a>
+    <a href="#markets">Markets</a>
+    <a href="#patent">Patent</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="badge"><span class="dot"></span>Patent Pending</span>
+          <h1>One kilowatt-hour.<br><span class="grad">Two jobs.</span></h1>
+          <p class="lede">ThermalCore is a sealed compute module built in the exact shape of a standard
+            screw-in heating element. It threads into the port your tank already has — the water cools the
+            chips for free, and every watt of computation becomes the hot water you were buying anyway.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#how">See how it works ↓</a>
+            <a class="btn btn-ghost" href="#contact">Pilot &amp; partner inquiries</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="glowframe"><img src="01.png" alt="Cutaway view of a water heater with the ThermalCore smart screw-in element: compute board immersed in dielectric oil with a backup heating coil" width="1449" height="1086" fetchpriority="high"></div>
+          <p class="caption">Concept illustration — the smart screw-in element, shown installed in a standard tank.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div><b>≈100%</b><span>of compute electricity ends up as usable heat</span></div>
+        <div><b>1&quot;</b><span>standard element port — no new plumbing</span></div>
+        <div><b>2</b><span>jobs from every kilowatt-hour: computation + hot water</span></div>
+        <div><b>5</b><span>patent-pending product variants — one standard port</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PROBLEM ================= -->
+  <section id="problem">
+    <div class="wrap">
+      <p class="kicker reveal">The Problem</p>
+      <h2 class="reveal">The economy pays for the same kilowatt-hour twice.</h2>
+      <p class="sub reveal">Computers turn electricity into heat — all of it, by physics. Data centers pay
+        dearly to throw that heat away. Meanwhile the buildings around them burn more electricity to make
+        heat on purpose. Two bills. One kilowatt-hour of actual work.</p>
+      <div class="cards c3">
+        <div class="card bignum reveal">
+          <b>4.4% → 12%</b>
+          <h3>Computing demand is exploding</h3>
+          <p>U.S. data centers used 4.4% of national electricity in 2023 and are projected to reach
+            6.7–12% by 2028 (LBNL, 2024). Every one of those watts leaves as heat — mostly wasted.</p>
+        </div>
+        <div class="card bignum reveal">
+          <b>~18%</b>
+          <h3>Buildings burn power for hot water</h3>
+          <p>Water heating is typically ~18% of a home's energy use — the second-largest load (EIA) — and a
+            major around-the-clock load in many commercial buildings. It is heat made from scratch, right
+            next to heat being discarded.</p>
+        </div>
+        <div class="card bignum reveal">
+          <b>31,000 t</b>
+          <h3>Working silicon becomes e-waste</h3>
+          <p>Retired data-center and mining hardware — roughly 31 kilotonnes a year from Bitcoin mining alone
+            (de Vries &amp; Stoll, 2021) — still converts electricity to heat perfectly. It's an entire supply
+            chain of heating elements, discarded.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how">
+    <div class="wrap">
+      <p class="kicker reveal">How It Works</p>
+      <h2 class="reveal">Same port. Same heat. New income.</h2>
+      <p class="sub reveal">Most electric water heaters — and virtually all U.S. residential tanks — share one
+        standardized feature: the threaded element port. ThermalCore replaces the dumb resistor behind it
+        with computation.</p>
+      <div class="cards c3">
+        <div class="card reveal"><span class="step" aria-hidden="true">01</span>
+          <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><path d="M14 6l4 4m-9 1l4-4m-8 9l4-4m3 7l-8-8"/><circle cx="18.5" cy="5.5" r="2.5"/></svg></div>
+          <h3>Unscrew. Screw in.</h3>
+          <p>ThermalCore installs in the standard screw-in element port that electric water heaters, boilers,
+            and industrial tanks already have. No new plumbing, no construction, no extra floor space.</p>
+        </div>
+        <div class="card reveal"><span class="step" aria-hidden="true">02</span>
+          <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M4 10h3M4 14h3M17 10h3M17 14h3M10 4v3M14 4v3M10 17v3M14 17v3"/></svg></div>
+          <h3>Chips compute, sealed in oil.</h3>
+          <p>Inside the stainless housing, processors run immersed in dielectric oil. The tank water surrounding
+            the module is the heatsink — industrial-grade cooling the building gets for free.</p>
+        </div>
+        <div class="card reveal"><span class="step" aria-hidden="true">03</span>
+          <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8a2a" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-2.8 3.8-6 6.6-6 10a6 6 0 0 0 12 0c0-3.4-3.2-6.2-6-10z"/><path d="M9.5 16.5c.5 1 1.4 1.5 2.5 1.5"/></svg></div>
+          <h3>Every watt becomes hot water.</h3>
+          <p>Essentially every watt the chips consume ends up as heat in the water — the same conversion a
+            resistive element performs. The computation revenue is the new part.</p>
+        </div>
+      </div>
+      <div class="wideframe reveal"><img src="03.png" alt="A gloved hand installing the threaded ThermalCore element into the port of a tank" loading="lazy" width="1680" height="945"></div>
+      <p class="framecaption reveal">Concept illustration — installation is the same motion a plumber already knows: replacing a heating element.</p>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCT ================= -->
+  <section id="product">
+    <div class="wrap">
+      <p class="kicker reveal">The Product Family</p>
+      <h2 class="reveal">One invention. Five ways in.</h2>
+      <p class="sub reveal">The filed application covers the form factors that make an element-port computer
+        practical in the real world — including a geometry problem no incumbent product addresses: almost
+        nothing computes in a one-inch opening.</p>
+      <div class="split">
+        <div class="variants">
+          <div class="variant reveal"><h3><span class="n">01</span>Straight element</h3>
+            <p>The drop-in: a rigid sealed module in the classic element shape, for tanks with clearance.
+              Same install as the part it replaces.</p></div>
+          <div class="variant reveal"><h3><span class="n">02</span>The flexible snake</h3>
+            <p>A chain of narrow compute segments that threads through the one-inch port and coils inside
+              the tank — more computing power through the same small opening.</p></div>
+          <div class="variant reveal"><h3><span class="n">03</span>Buoyant deployment</h3>
+            <p>A float-tipped snake that rises and self-arranges as the tank fills, spreading heat — and
+              cooling — through the water column.</p></div>
+          <div class="variant reveal"><h3><span class="n">04</span>Dry-well sleeve</h3>
+            <p>A permanent sleeve that lets the compute cartridge be swapped in seconds — without draining
+              the tank. Silicon ages faster than steel; serviceability is designed in.</p></div>
+          <div class="variant reveal"><h3><span class="n">05</span>Hybrid fail-safe</h3>
+            <p>Compute module plus a backup resistive coil in one housing, designed so that if the electronics
+              ever stop, the coil takes over automatically and the building keeps its hot water.</p></div>
+        </div>
+        <div class="snakecol reveal">
+          <div class="snakepanel">
+            <img src="02.png" alt="Concept render of the flexible ThermalCore compute snake coiled inside a tank, glowing as it heats the water" loading="lazy">
+          </div>
+          <p class="framecaption">The flexible snake, deployed — compute segments coiled through the water column. Concept illustration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY NOW ================= -->
+  <section id="why-now">
+    <div class="wrap">
+      <p class="kicker reveal">Why Now</p>
+      <h2 class="reveal">Three clocks are striking at once.</h2>
+      <div class="cards c3">
+        <div class="card clock reveal">
+          <b>2024 → 2027</b>
+          <h3>The law is creating the market</h3>
+          <p>NYC Local Law 154 bans fossil-fuel combustion in new buildings — in force for buildings under seven
+            stories since 2024, extending to all new buildings in July 2027 — effectively making new hot-water
+            systems electric, with other jurisdictions following. Each new element port is a socket ThermalCore
+            can fill.</p>
+          <span class="tag">Regulation</span>
+        </div>
+        <div class="card clock reveal">
+          <b>6.7–12%</b>
+          <h3>Compute demand needs somewhere to go</h3>
+          <p>Data-center electricity is projected to grow to as much as nearly triple its national share by
+            2028 (LBNL, 2024). Distributed compute that pays for its own cooling — and sells its heat — is
+            the pressure valve.</p>
+          <span class="tag">Demand</span>
+        </div>
+        <div class="card clock reveal">
+          <b>$ / kWh</b>
+          <h3>The hardware supply chain exists</h3>
+          <p>The compute industry's upgrade cycle produces a constant stream of inexpensive, fully working
+            processors. They're retired for being slow at math — but they're still perfect at making heat.</p>
+          <span class="tag">Supply</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MARKETS ================= -->
+  <section id="markets">
+    <div class="wrap">
+      <p class="kicker reveal">Go-To-Market</p>
+      <h2 class="reveal">Beachhead first. Buildings next. License everything.</h2>
+      <div class="cards c3">
+        <div class="card reveal">
+          <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h16M6 20V9l6-4 6 4v11"/><path d="M10 20v-5h4v5"/></svg></div>
+          <h3>1 · Industrial process tanks</h3>
+          <p>Aqueous parts washers and process baths already run on electric immersion elements at 60–82&nbsp;°C,
+            many of them near-continuously, year-round. Same port, full electric-rate heat credit, and owners
+            who buy on payback. This is where ThermalCore lands first.</p>
+          <span class="tag">Beachhead</span>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><path d="M3 21h18M5 21V5a1 1 0 0 1 1-1h7v17M13 8h5a1 1 0 0 1 1 1v12"/><path d="M8 8h2M8 12h2M8 16h2M16 12h1M16 16h1"/></svg></div>
+          <h3>2 · All-electric buildings</h3>
+          <p>Commercial electric water heaters ship with as many as a dozen element ports. As electrification
+            mandates take hold, ThermalCore turns every all-electric boiler room into a micro data center that
+            pays part of the utility bill.</p>
+          <span class="tag">Scale</span>
+        </div>
+        <div class="card reveal">
+          <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8a2a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 5V3M12 21v-2M5 12H3M21 12h-2M6.5 6.5L5 5M19 19l-1.5-1.5M17.5 6.5L19 5M5 19l1.5-1.5"/></svg></div>
+          <h3>3 · OEM &amp; operator licensing</h3>
+          <p>The endgame is the element itself as a licensed standard — adopted by water-heater manufacturers
+            and heat-reuse operators who today build entire custom appliances to do what one screw-in part
+            can do.</p>
+          <span class="tag">Endgame</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PATENT ================= -->
+  <section id="patent">
+    <div class="wrap">
+      <p class="kicker reveal">The Technology &amp; IP</p>
+      <h2 class="reveal">Filed. Comprehensive. Retrofit-first.</h2>
+      <div class="patentpanel reveal">
+        <p class="appno">Patent pending — “Immersion Computing Module for Liquid-Heating Appliances”</p>
+        <p class="sub" style="margin-top:14px">A full utility patent application with 20 claims (3 independent),
+          drafted and filed by the inventor. The incumbents in heat-reuse computing build new appliances or
+          external skids; the filed claims cover the retrofit path — computing <em>inside</em> the vessel the
+          building already owns.</p>
+        <div class="claimgrid">
+          <div class="claim"><b>Element-port module</b><p>The sealed compute module in the standardized screw-in
+            heating-element form factor.</p></div>
+          <div class="claim"><b>Flexible coiled conduit</b><p>The “snake” — chained segments that pass a one-inch
+            port and coil inside the tank.</p></div>
+          <div class="claim"><b>Buoyant-tip deployment</b><p>Float-assisted self-arrangement of the flexible module
+            through the water column.</p></div>
+          <div class="claim"><b>Dry-well service sleeve</b><p>Cartridge swaps without draining the vessel — silicon
+            re-cores on a steel timeline.</p></div>
+          <div class="claim"><b>Hybrid backup coil</b><p>Integrated resistive element designed for continuity of
+            hot water if the compute module fails.</p></div>
+          <div class="claim"><b>Fleet &amp; grid control</b><p>Building-scale orchestration with demand-response
+            participation across module fleets.</p></div>
+        </div>
+        <p class="sub" style="margin-top:26px;font-size:.9rem">Status: awaiting first examination. A bench
+          prototype — real silicon, sealed in oil, heating a real tank through the standard port — is in
+          progress, with an instrumented build log to follow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="wrap">
+      <p class="kicker reveal">The Inventor</p>
+      <h2 class="reveal">Built by someone who can write the IP, negotiate the license, and open the boiler-room door.</h2>
+      <div class="about">
+        <div class="monocard reveal">
+          <div class="monogram">BG</div>
+          <b>Benny Goldstein</b>
+          <p>Inventor &amp; Founder</p>
+          <p class="mono" style="margin-top:14px;font-size:.72rem;letter-spacing:.08em">LL.B. · LL.M. (ISRAEL) · PATENTS &amp; CONTRACTS</p>
+        </div>
+        <div class="bio reveal">
+          <p><strong>Attorney (Israel), LL.B. and LL.M.,</strong> specializing in patent and contract law. Benny
+            drafts and files his own U.S. patent applications pro se as the inventor — ThermalCore is his fifth.
+            IP strategy, licensing, and contracts are in-house by definition.</p>
+          <p><strong>Real-estate operator.</strong> His day job is multifamily real-estate operations and investor
+            relations across a large rental portfolio — which means direct access to the boiler rooms,
+            building owners, and affordable-housing programs where ThermalCore's building-scale story starts.</p>
+          <p><strong>Relentless inventor.</strong> A pipeline of filed applications, a bench prototype in progress,
+            and one conviction: the cheapest heat in the world is the heat somebody already paid to make.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contactpanel reveal">
+        <p class="kicker">Contact</p>
+        <h2>Pilot sites, partners &amp; licensing — let's talk.</h2>
+        <p class="sub">Operating an electrically heated tank that runs around the clock? Electrifying a building's
+          hot water? Building heat-reuse infrastructure? ThermalCore is looking for early pilot partners.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:hello@thermalcore.energy">hello@thermalcore.energy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:16px">
+          <span class="mark"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M16 4c-3.4 5-8 8.6-8 13.6a8 8 0 0 0 16 0C24 12.6 19.4 9 16 4z" stroke="url(#lg2)" stroke-width="2.4"/><defs><linearGradient id="lg2" x1="8" y1="4" x2="24" y2="26"><stop stop-color="#ff8a2a"/><stop offset="1" stop-color="#4cc9f0"/></linearGradient></defs></svg></span>
+          THERMALCORE<span class="tld">.energy</span>
+        </a>
+        <p>The water-heater element that computes. One kilowatt-hour, two jobs: paid computation and the
+          hot water you were already buying.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#problem">The Problem</a>
+        <a href="#how">How It Works</a>
+        <a href="#product">Product</a>
+        <a href="#markets">Markets</a>
+        <a href="#patent">Patent</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:hello@thermalcore.energy">hello@thermalcore.energy</a>
+        <p style="margin-top:14px">Patent pending</p>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© <span id="yr">2026</span> ThermalCore. All rights reserved. Patent pending.</span>
+      <span>All product images are concept illustrations of the filed design. Nothing on this page is an offer
+        to sell or a solicitation of an offer to buy securities.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const burger=document.getElementById('burger'),menu=document.getElementById('mobilemenu');
+  const setMenu=open=>{menu.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);};
+  burger.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
+
+  // Scroll-spy (MetaShape-style)
+  const links=[...document.querySelectorAll('#navlinks a, #mobilemenu a')];
+  const ids=[...new Set(links.map(a=>a.getAttribute('href').slice(1)))];
+  function spy(){
+    let cur='';
+    for(const id of ids){const el=document.getElementById(id);
+      if(el&&el.getBoundingClientRect().top<=140)cur=id;}
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+  }
+  addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy);spy();
+
+  // Reveal on scroll
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    }),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }else{
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  }
+
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -202,6 +202,9 @@
   .founderphoto{width:190px;height:190px;border-radius:50%;object-fit:cover;object-position:50% 20%;
     margin:0 auto 18px;display:block;border:3px solid rgba(255,138,42,.55);
     box-shadow:0 0 34px rgba(255,138,42,.32)}
+  .namesig{height:30px;width:auto;margin:0 auto 2px;display:block}
+  .wprice{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:.76rem;font-weight:600;
+    color:var(--cyan-soft);margin-left:10px;padding-left:12px;border-left:1px solid var(--line2)}
 
   /* ---------- patent panel ---------- */
   .patentpanel{margin-top:44px;border:1px solid rgba(255,138,42,.35);border-radius:var(--radius);
@@ -434,13 +437,14 @@
       <p class="sub reveal">ThermalCore modules can run any computing job that tolerates being paced by the
         tank's demand for heat — the workload simply decides who pays for the electricity's first job.</p>
       <div class="workchips reveal">
-        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 7.5h3a2 2 0 0 1 0 4h-3zM10 11.5h3.5a2 2 0 0 1 0 4H10zM11 6v1.5M13 6v1.5M11 15.5V17M13 15.5V17"/></svg>Bitcoin &amp; crypto mining</span>
-        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><path d="M7 17a4.5 4.5 0 1 1 .8-8.9A5.5 5.5 0 0 1 18.4 9.7 3.8 3.8 0 0 1 17.5 17z"/><path d="M9 20h6M12 17v3"/></svg>Rented cloud &amp; batch compute</span>
-        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 12l2 2 4-4.5M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>AI inference &amp; image generation</span>
-        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><path d="M4 5h16v11H4zM4 19h16M10 16v3M14 16v3"/><path d="M8 12l2.5-3 2 2L15.5 8"/></svg>3D &amp; video rendering</span>
-        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v5.5L5 17a3 3 0 0 0 2.7 4.5h8.6A3 3 0 0 0 19 17l-5-8.5V3"/><path d="M8.5 3h7M8 15h8"/></svg>Scientific &amp; research computing</span>
-        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg>Data processing &amp; analytics</span>
+        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M10 7.5h3a2 2 0 0 1 0 4h-3zM10 11.5h3.5a2 2 0 0 1 0 4H10zM11 6v1.5M13 6v1.5M11 15.5V17M13 15.5V17"/></svg>Bitcoin &amp; crypto mining<em class="wprice">$0.01–0.04 /kWh</em></span>
+        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><path d="M7 17a4.5 4.5 0 1 1 .8-8.9A5.5 5.5 0 0 1 18.4 9.7 3.8 3.8 0 0 1 17.5 17z"/><path d="M9 20h6M12 17v3"/></svg>Rented cloud &amp; batch compute<em class="wprice">$0.25–0.50 /kWh</em></span>
+        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 12l2 2 4-4.5M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>AI inference &amp; image generation<em class="wprice">$1–5 /kWh</em></span>
+        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><path d="M4 5h16v11H4zM4 19h16M10 16v3M14 16v3"/><path d="M8 12l2.5-3 2 2L15.5 8"/></svg>3D &amp; video rendering<em class="wprice">$0.25–0.50 /kWh</em></span>
+        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round"><path d="M10 3v5.5L5 17a3 3 0 0 0 2.7 4.5h8.6A3 3 0 0 0 19 17l-5-8.5V3"/><path d="M8.5 3h7M8 15h8"/></svg>Scientific &amp; research computing<em class="wprice">$1–5 /kWh</em></span>
+        <span class="workchip"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></svg>Data processing &amp; analytics<em class="wprice">$1–5 /kWh</em></span>
       </div>
+      <p class="gridnote reveal" style="text-align:left">What a kilowatt-hour of computing sells for, July 2026 — mining from live hashprice across common ASIC hardware; GPU-marketplace rates (loaded) for rented compute and rendering; published enterprise batch-compute list rates for AI, scientific, and data workloads. Gross revenue per kWh of electricity consumed; rates move constantly and utilization varies.</p>
 
       <p class="kicker reveal" style="margin-top:72px">Where It Fits</p>
       <h2 class="reveal">If electricity heats a liquid, ThermalCore can be retrofitted into it.</h2>
@@ -594,13 +598,13 @@
       <h2 class="reveal">Built by someone who can write the IP, negotiate the license, and open the boiler-room door.</h2>
       <div class="about">
         <div class="monocard reveal">
-          <img class="founderphoto" src="founder.jpg" alt="Benny Goldstein, founder and inventor of ThermalCore, in the lab">
-          <b>Benny Goldstein</b>
+          <img class="founderphoto" src="founder.jpg" alt="The founder and inventor of ThermalCore, in the lab">
+          <img class="namesig" src="founder-name.png" alt="Founder">
           <p>Inventor &amp; Founder</p>
           <p class="mono" style="margin-top:14px;font-size:.72rem;letter-spacing:.08em">LL.B. · LL.M. · PATENTS &amp; CONTRACTS</p>
         </div>
         <div class="bio reveal">
-          <p><strong>Attorney, LL.B. and LL.M.,</strong> specializing in patent and contract law. Benny
+          <p><strong>Attorney, LL.B. and LL.M.,</strong> specializing in patent and contract law. He
             drafts and files his own U.S. patent applications pro se as the inventor — ThermalCore is his fifth.
             IP strategy, licensing, and contracts are in-house by definition.</p>
           <p><strong>Real-estate operator.</strong> His day job is multifamily real-estate operations and investor

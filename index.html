@@ -174,7 +174,7 @@
     transition:transform .2s,border-color .2s,box-shadow .2s}
   .workchip:hover{transform:translateY(-3px);border-color:rgba(255,138,42,.5);
     box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 30px rgba(255,138,42,.1)}
-  .workchip .wicon{flex:0 0 75px;width:75px;height:75px;display:grid;place-items:center;align-self:center;margin-top:-6px}
+  .workchip .wicon{flex:0 0 75px;width:75px;height:75px;display:grid;place-items:center;align-self:center;margin-top:-14px}
   .workchip .wicon img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;
     -webkit-mask-image:radial-gradient(ellipse at center,#000 45%,transparent 78%);
     mask-image:radial-gradient(ellipse at center,#000 45%,transparent 78%);
@@ -201,6 +201,17 @@
   .gridnote{margin-top:18px;font-size:.74rem;color:var(--dim);text-align:center}
   .app b{display:block;font-size:.93rem;font-weight:700;margin-bottom:4px}
   .app span{font-size:.77rem;color:var(--muted);line-height:1.45}
+
+  /* ---------- section thumbnail icons ---------- */
+  .thumb{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px;
+    background:radial-gradient(70% 70% at 50% 38%,rgba(255,138,42,.18),rgba(76,201,240,.09) 72%,transparent);
+    border:1px solid var(--line2);box-shadow:0 0 20px rgba(255,138,42,.12)}
+  .thumb svg{filter:drop-shadow(0 0 5px rgba(255,138,42,.35)) drop-shadow(0 0 3px rgba(76,201,240,.3))}
+  .claim{position:relative}
+  .claim .cthumb{width:46px;height:46px;border-radius:11px;display:grid;place-items:center;margin-bottom:10px;
+    background:radial-gradient(70% 70% at 50% 38%,rgba(255,138,42,.16),rgba(76,201,240,.08) 72%,transparent);
+    border:1px solid var(--line2)}
+  .claim .cthumb svg{filter:drop-shadow(0 0 4px rgba(255,138,42,.3))}
 
   /* ---------- why now clocks ---------- */
   .clock b{display:block;font-family:Sora;font-size:1.5rem;font-weight:800;color:var(--cyan-soft);margin-bottom:6px}
@@ -301,7 +312,7 @@
       <span class="mark">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M16 4c-3.4 5-8 8.6-8 13.6a8 8 0 0 0 16 0C24 12.6 19.4 9 16 4z" stroke="url(#lg)" stroke-width="2.4"/><path d="M12.8 20.4l2.4-2.4m1.2-1.2l2.4-2.4M12.4 16.4l2 2m1.4 1.4l1.8 1.8" stroke="#4cc9f0" stroke-width="1.5" stroke-linecap="round"/><defs><linearGradient id="lg" x1="8" y1="4" x2="24" y2="26"><stop stop-color="#ff8a2a"/><stop offset="1" stop-color="#4cc9f0"/></linearGradient></defs></svg>
       </span>
-      THERMALCORE<span class="tld">.energy</span>
+      THERMALCORE
     </a>
     <nav class="navlinks" id="navlinks">
       <a href="#problem">The Problem</a>
@@ -536,6 +547,15 @@
       <h2 class="reveal">Three clocks are striking at once.</h2>
       <div class="cards c3">
         <div class="card clock reveal">
+          <div class="thumb"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 48 48" fill="none">
+            <defs><linearGradient id="wn1" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffb066"/><stop offset="1" stop-color="#c96a1a"/></linearGradient></defs>
+            <path d="M8 40h32" stroke="#4a5a75" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 40V22h28v18" fill="none" stroke="url(#wn1)" stroke-width="2"/>
+            <path d="M24 8l16 12H8z" fill="url(#wn1)" opacity=".9"/>
+            <g stroke="url(#wn1)" stroke-width="2"><path d="M15 40V27M21 40V27M27 40V27M33 40V27"/></g>
+            <circle cx="36" cy="12" r="6" fill="#0e1826" stroke="#4cc9f0" stroke-width="1.6"/>
+            <path d="M36 9v3l2 2" stroke="#8fe3ff" stroke-width="1.4" stroke-linecap="round"/>
+          </svg></div>
           <b>2024 → 2027</b>
           <h3>The law is creating the market</h3>
           <p>NYC Local Law 154 bans fossil-fuel combustion in new buildings — in force for buildings under seven
@@ -545,6 +565,14 @@
           <span class="tag">Regulation</span>
         </div>
         <div class="card clock reveal">
+          <div class="thumb"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 48 48" fill="none">
+            <defs><linearGradient id="wn2" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#151f30"/></linearGradient></defs>
+            <rect x="9" y="7" width="20" height="34" rx="3" fill="url(#wn2)" stroke="#4a5a75" stroke-width="1.5"/>
+            <g fill="#ffb066"><rect x="13" y="11" width="12" height="3" rx="1"/><rect x="13" y="18" width="12" height="3" rx="1"/><rect x="13" y="25" width="12" height="3" rx="1"/><rect x="13" y="32" width="12" height="3" rx="1"/></g>
+            <g fill="#8fe3ff"><circle cx="15" cy="12.5" r="1"/><circle cx="15" cy="19.5" r="1"/><circle cx="15" cy="26.5" r="1"/></g>
+            <path d="M38 40V16M38 16l-4 5M38 16l4 5" stroke="#4cc9f0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <animate attributeName="opacity" values="1;.4;1" dur="2s" repeatCount="indefinite"/></path>
+          </svg></div>
           <b>6.7–12%</b>
           <h3>Compute demand needs somewhere to go</h3>
           <p>Data-center electricity is projected to grow to as much as nearly triple its national share by
@@ -553,6 +581,14 @@
           <span class="tag">Demand</span>
         </div>
         <div class="card clock reveal">
+          <div class="thumb"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 48 48" fill="none">
+            <defs><linearGradient id="wn3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3a4a63"/><stop offset="1" stop-color="#1c2637"/></linearGradient></defs>
+            <rect x="12" y="20" width="18" height="18" rx="2" fill="url(#wn3)" stroke="#4a5a75" stroke-width="1.4" transform="rotate(-8 21 29)"/>
+            <rect x="18" y="12" width="18" height="18" rx="2" fill="url(#wn3)" stroke="#4cc9f0" stroke-width="1.4" transform="rotate(6 27 21)"/>
+            <rect x="23" y="16" width="8" height="8" rx="1.5" fill="#ff8a2a" transform="rotate(6 27 20)"><animate attributeName="opacity" values="1;.5;1" dur="2.4s" repeatCount="indefinite"/></rect>
+            <g stroke="#4a5a75" stroke-width="1.3"><path d="M18 12v-3M24 12v-3M30 13v-3M36 18h3M36 24h3"/></g>
+            <g fill="#8fe3ff"><circle cx="15" cy="24" r="1"/><circle cx="27" cy="35" r="1"/></g>
+          </svg></div>
           <b>$ / kWh</b>
           <h3>The hardware supply chain exists</h3>
           <p>The compute industry's upgrade cycle produces a constant stream of inexpensive, fully working
@@ -619,17 +655,47 @@
           external skids; the filed claims cover the retrofit path — computing <em>inside</em> the vessel the
           building already owns.</p>
         <div class="claimgrid">
-          <div class="claim"><b>Element-port module</b><p>The sealed compute module in the standardized screw-in
+          <div class="claim"><div class="cthumb"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 48 48" fill="none">
+            <defs><linearGradient id="cl1" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c9d4e4"/><stop offset="1" stop-color="#77879f"/></linearGradient></defs>
+            <rect x="18" y="6" width="12" height="7" rx="1.5" fill="url(#cl1)" stroke="#4a5a75"/>
+            <path d="M20 13h8v4l-2 2v20a2 2 0 0 1-4 0V19l-2-2z" fill="url(#cl1)" stroke="#4a5a75" stroke-width="1"/>
+            <path d="M19 13h10" stroke="#8a4a12" stroke-width="1.4"/>
+            <rect x="22" y="24" width="4" height="10" rx="1" fill="#ff8a2a"><animate attributeName="opacity" values="1;.5;1" dur="2.2s" repeatCount="indefinite"/></rect>
+          </svg></div><b>Element-port module</b><p>The sealed compute module in the standardized screw-in
             heating-element form factor.</p></div>
-          <div class="claim"><b>Flexible coiled conduit</b><p>The “snake” — chained segments that pass a one-inch
+          <div class="claim"><div class="cthumb"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 48 48" fill="none">
+            <path d="M14 8c8 0 8 6 0 6s-8 6 0 6 8 6 0 6 8 6 0 6 8 6 0 6" transform="translate(6 3)" stroke="#ffb066" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <g fill="#4cc9f0"><circle cx="13" cy="14" r="1.6"/><circle cx="27" cy="20" r="1.6"/><circle cx="13" cy="26" r="1.6"/><circle cx="27" cy="32" r="1.6"/><circle cx="13" cy="38" r="1.6"/></g>
+          </svg></div><b>Flexible coiled conduit</b><p>The “snake” — chained segments that pass a one-inch
             port and coil inside the tank.</p></div>
-          <div class="claim"><b>Buoyant-tip deployment</b><p>Float-assisted self-arrangement of the flexible module
+          <div class="claim"><div class="cthumb"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 48 48" fill="none">
+            <path d="M6 40c4-3 8-3 12 0s8 3 12 0 8-3 12 0" stroke="#4cc9f0" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <circle cx="24" cy="20" r="9" fill="#0e1826" stroke="#8fe3ff" stroke-width="1.6"/>
+            <circle cx="24" cy="20" r="4" fill="#ff8a2a"><animate attributeName="cy" values="20;17;20" dur="2.6s" repeatCount="indefinite"/></circle>
+            <path d="M24 29v9" stroke="#ffb066" stroke-width="1.6" stroke-dasharray="2 2"/>
+          </svg></div><b>Buoyant-tip deployment</b><p>Float-assisted self-arrangement of the flexible module
             through the water column.</p></div>
-          <div class="claim"><b>Dry-well service sleeve</b><p>Cartridge swaps without draining the vessel — silicon
+          <div class="claim"><div class="cthumb"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 48 48" fill="none">
+            <rect x="8" y="16" width="24" height="16" rx="4" fill="#1c2637" stroke="#4a5a75" stroke-width="1.5"/>
+            <rect x="26" y="19" width="16" height="10" rx="2" fill="#0e1826" stroke="#4cc9f0" stroke-width="1.4"/>
+            <rect x="30" y="21.5" width="8" height="5" rx="1" fill="#ff8a2a"/>
+            <path d="M42 24h3" stroke="#4a5a75" stroke-width="1.4"/>
+            <g fill="#8fe3ff"><circle cx="13" cy="24" r="1.2"/><circle cx="18" cy="24" r="1.2"/></g>
+          </svg></div><b>Dry-well service sleeve</b><p>Cartridge swaps without draining the vessel — silicon
             re-cores on a steel timeline.</p></div>
-          <div class="claim"><b>Hybrid backup coil</b><p>Integrated resistive element designed for continuity of
+          <div class="claim"><div class="cthumb"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 48 48" fill="none">
+            <rect x="14" y="10" width="20" height="28" rx="10" fill="#0e1826" stroke="#4a5a75" stroke-width="1.4"/>
+            <rect x="20" y="18" width="8" height="12" rx="1.5" fill="#1c2637" stroke="#4cc9f0" stroke-width="1.2"/>
+            <rect x="22" y="21" width="4" height="6" rx="1" fill="#8fe3ff"/>
+            <path d="M12 14c-3 0-3 4 0 4M36 14c3 0 3 4 0 4M12 22c-3 0-3 4 0 4M36 22c3 0 3 4 0 4M12 30c-3 0-3 4 0 4M36 30c3 0 3 4 0 4" stroke="#ff8a2a" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="opacity" values="1;.5;1" dur="2.2s" repeatCount="indefinite"/></path>
+          </svg></div><b>Hybrid backup coil</b><p>Integrated resistive element designed for continuity of
             hot water if the compute module fails.</p></div>
-          <div class="claim"><b>Fleet &amp; grid control</b><p>Building-scale orchestration with demand-response
+          <div class="claim"><div class="cthumb"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="5" fill="#ff8a2a"/>
+            <g fill="#1c2637" stroke="#4cc9f0" stroke-width="1.3"><rect x="6" y="8" width="9" height="12" rx="2"/><rect x="33" y="8" width="9" height="12" rx="2"/><rect x="6" y="30" width="9" height="10" rx="2"/><rect x="33" y="30" width="9" height="10" rx="2"/></g>
+            <g stroke="#8fe3ff" stroke-width="1.4"><path d="M15 14l4 6M33 14l-4 6M15 34l5-6M33 34l-5-6"/></g>
+            <g fill="#8fe3ff"><circle cx="10.5" cy="14" r="1"/><circle cx="37.5" cy="14" r="1"/></g>
+          </svg></div><b>Fleet &amp; grid control</b><p>Building-scale orchestration with demand-response
             participation across module fleets.</p></div>
         </div>
         <p class="sub" style="margin-top:26px;font-size:.9rem">Status: awaiting first examination. A bench

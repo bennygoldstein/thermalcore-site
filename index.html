@@ -75,7 +75,7 @@
     background:rgba(4,7,15,.97);max-height:calc(100vh - 66px);max-height:calc(100dvh - 66px);overflow-y:auto}
   .mobilemenu a{padding:11px 12px;border-radius:10px;font-weight:600;color:var(--muted)}
   .mobilemenu a.active{color:var(--cyan-soft);background:rgba(76,201,240,.14)}
-  @media(max-width:1220px){.navlinks,.navcta .chip{display:none}.burger{display:block}.mobilemenu.open{display:flex}}
+  @media(max-width:1300px){.navlinks,.navcta .chip{display:none}.burger{display:block}.mobilemenu.open{display:flex}}
 
   /* ---------- hero ---------- */
   .hero{padding:150px 0 40px;position:relative}
@@ -237,6 +237,30 @@
   .contactpanel h2{margin:0 auto}
   .contactpanel .sub{margin-left:auto;margin-right:auto}
 
+  /* ---------- business plan section ---------- */
+  #plan h3{font-family:Sora,Inter,sans-serif;font-size:1.08rem;font-weight:700;color:var(--orange-soft);margin:30px 0 8px}
+  .bpwrap{overflow-x:auto}
+  .bptable{width:100%;border-collapse:collapse;font-size:.85rem;margin:14px 0;min-width:560px}
+  .bptable th{font-family:Sora,Inter,sans-serif;background:rgba(255,138,42,.13);color:var(--orange-soft);text-align:left;
+    padding:9px 12px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line2)}
+  .bptable td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+  .bptable td b{color:var(--text)}
+  .bptable tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+  .bptable td.num{font-family:"JetBrains Mono",monospace;color:var(--cyan-soft);white-space:nowrap}
+  .bpbox{border:1px solid rgba(255,138,42,.4);border-radius:14px;padding:18px 22px;margin:16px 0;
+    background:linear-gradient(135deg,rgba(255,138,42,.09),rgba(76,201,240,.05))}
+  .bpbox.cyan{border-color:rgba(76,201,240,.4)}
+  .bpcols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+  .bpcols2{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:16px 0;align-items:center}
+  @media(max-width:920px){.bpcols{grid-template-columns:1fr}.bpcols2{grid-template-columns:1fr}}
+  .bpstat{border:1px solid var(--line);border-radius:12px;padding:15px 14px;text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012))}
+  .bpstat b{display:block;font-family:Sora,Inter,sans-serif;font-size:1.28rem;font-weight:800;color:var(--orange-soft)}
+  .bpstat.c b{color:var(--cyan-soft)} .bpstat.t b{color:#2dd4a7} .bpstat.g b{color:#f5c04e}
+  .bpstat span{font-size:.75rem;color:var(--muted);line-height:1.45;display:block;margin-top:3px}
+  .bplegend{display:flex;flex-wrap:wrap;gap:10px;font-size:.73rem;color:var(--muted);margin-top:8px;justify-content:center}
+  .bplegend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);background:rgba(4,7,15,.85);padding:54px 0 30px}
   .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px}
@@ -276,6 +300,7 @@
       <a href="#patent">Patent</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a href="#plan">Plan</a>
     </nav>
     <div class="navcta">
       <span class="chip">Patent Pending</span>
@@ -292,6 +317,7 @@
     <a href="#patent">Patent</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
+    <a href="#plan">Plan</a>
   </nav>
 </header>
 
@@ -631,6 +657,251 @@
       </div>
     </div>
   </section>
+  <!-- ================= BUSINESS PLAN ================= -->
+  <section id="plan">
+    <div class="wrap">
+      <p class="kicker reveal">The Business Plan</p>
+      <h2 class="reveal">The whole plan, in the open.</h2>
+      <p class="sub reveal">For operators, partners, and the curious: the complete ThermalCore business plan —
+        the same story we tell in meetings. Keep scrolling.</p>
+
+      <h3 class="reveal">Executive summary</h3>
+      <p class="reveal">Every electric tank in America is an empty socket for a micro data center. Computers turn
+        100% of their electricity into heat and pay to throw it away; buildings burn more electricity to make heat
+        on purpose. ThermalCore merges the two at the standardized element port — the surrounding liquid cools the
+        chips for free, essentially every watt becomes the hot water the owner was already buying, and the
+        computation is sold a second time. Every incumbent in heat-reuse computing builds a <b>new appliance</b>;
+        our patent-pending claims cover the <b>retrofit</b> — computing inside the vessel the building already
+        owns.</p>
+      <div class="bpbox reveal">
+        <h3 style="margin-top:0">The funding plan — $1.25M pre-seed</h3>
+        <p style="margin-bottom:0">An 18–24-month execution window: professional product development with a mid-tier
+          U.S. engineering firm through a certified, pilot-proven product; ETL/UL safety listing; a 25-unit pilot
+          fleet across three beachhead verticals; IP expansion; and operating runway to a $3–6M seed on proof.
+          Benchmarks: U.S. climate-hardware pre-seeds run $500K–$1.5M (Carta, 2025); the most direct U.S.
+          comparable, Watter, closed a $5M seed in March 2025; Deep Green's heat-reuse model drew a £200M
+          scale-up from Octopus Energy once proven. <i>Informational only — see the notice in the footer.</i></p>
+      </div>
+
+      <h3 class="reveal">Market: honest funnel</h3>
+      <div class="bpcols2">
+        <div class="reveal">
+          <svg viewBox="0 0 320 190" style="width:100%">
+            <defs>
+              <linearGradient id="bpf1" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2a3850"/><stop offset="1" stop-color="#141d2e"/></linearGradient>
+              <linearGradient id="bpf2" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1d5c7d"/><stop offset="1" stop-color="#4cc9f0"/></linearGradient>
+              <linearGradient id="bpf3" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#c96a1a"/><stop offset="1" stop-color="#ffb066"/></linearGradient>
+            </defs>
+            <polygon points="10,14 310,14 265,72 55,72" fill="url(#bpf1)" stroke="#4a5a75" stroke-width="1"/>
+            <polygon points="55,78 265,78 225,132 95,132" fill="url(#bpf2)" stroke="#4cc9f0" stroke-width="1" opacity=".9"/>
+            <polygon points="95,138 225,138 195,182 125,182" fill="url(#bpf3)" stroke="#ffb066" stroke-width="1"/>
+            <text x="160" y="40" text-anchor="middle" fill="#e8eefa" font-size="12" font-family="Sora" font-weight="700">TAM · 45M+ element-port tanks (U.S.)</text>
+            <text x="160" y="58" text-anchor="middle" fill="#9db0cb" font-size="8.5">every electric water heater, boiler &amp; process tank</text>
+            <text x="160" y="100" text-anchor="middle" fill="#04202e" font-size="11" font-family="Sora" font-weight="700">SAM · ~1.2M high-duty electric tanks</text>
+            <text x="160" y="117" text-anchor="middle" fill="#0a3348" font-size="8.5">commercial/industrial, ≥12 h per day duty (est.)</text>
+            <text x="160" y="160" text-anchor="middle" fill="#3a1c05" font-size="11" font-family="Sora" font-weight="700">SOM · 15,000 tanks / ~$30M</text>
+            <text x="160" y="175" text-anchor="middle" fill="#57300e" font-size="8.5">3-year, NY-metro + beachhead verticals (mgmt. est.)</text>
+          </svg>
+        </div>
+        <div class="reveal">
+          <p style="font-size:.92rem">The twelve verified host industries above show the sockets number in the
+            millions and their operators already pay for heat. The funnel converts that into a serviceable market:
+            high-duty electric tanks are where compute-heat economics clear today, and the three-year obtainable
+            slice assumes only the beachhead verticals in one region. Approximate, conservatively rounded,
+            2024–2025 sources; SAM/SOM are management estimates.</p>
+        </div>
+      </div>
+
+      <h3 class="reveal">Competitive landscape</h3>
+      <div class="bpwrap reveal">
+      <table class="bptable">
+        <tr><th>Player</th><th>Architecture</th><th>Traction signal</th><th>What they can't do</th></tr>
+        <tr><td><b>Deep Green</b> (UK)</td><td>Immersion data centers + heat exchanger to pools/leisure</td><td class="num">£200M from Octopus Energy (2024)</td><td>Needs plant-room build-out; gives heat away free; no retrofit product</td></tr>
+        <tr><td><b>Qarnot</b> (FR)</td><td>Compute radiators &amp; boilers (new appliances)</td><td class="num">€35M+ raised; enterprise batch clients</td><td>Sells new capex; doesn't touch existing tanks</td></tr>
+        <tr><td><b>Heata</b> (UK)</td><td>Server bolted to outside of domestic cylinder</td><td class="num">£1M seed; British Gas pilot heritage</td><td>Conduction from outside = limited power; UK domestic focus</td></tr>
+        <tr><td><b>MintGreen</b> (CA)</td><td>Boiler-scale "digital boilers" for district heat</td><td class="num">City of North Vancouver contract</td><td>Utility-scale sales cycle; not appliance-level</td></tr>
+        <tr><td><b>21energy / Hestiia</b> (EU)</td><td>Bitcoin space heaters (new appliances)</td><td class="num">€1.1M / $1.4M early rounds</td><td>Air heaters; no liquid integration, no port claim</td></tr>
+        <tr><td><b>Watter</b> (US)</td><td>Compute-heat water heating systems</td><td class="num">$5M seed (Mar 2025)</td><td>Validates the U.S. market; system-level, not element retrofit</td></tr>
+      </table>
+      </div>
+      <div class="bpbox reveal">
+        <h3 style="margin-top:0">The structural gap ThermalCore occupies</h3>
+        <p style="margin-bottom:0">Every player above asks the customer to <b>buy a new appliance or build a plant
+          room</b>. ThermalCore asks them to <b>replace a $30 part</b> during routine maintenance. The patent-pending
+          claims sit on that retrofit interface — if incumbents ever want this lane, or OEMs want to ship "smart
+          element" SKUs, ThermalCore is the natural partner or licensor. Their funding levels simultaneously
+          validate the space and price its upside.</p>
+      </div>
+
+      <h3 class="reveal">Business model &amp; unit economics</h3>
+      <div class="bpcols">
+        <div class="bpstat reveal"><b>Hardware</b><span>Module sale $1,600–2,200 installed (pilot pricing) or $0-down heat-service contract</span></div>
+        <div class="bpstat c reveal"><b>Fleet SaaS</b><span>$15–25 /module/month — monitoring, workload orchestration, demand-response enrollment</span></div>
+        <div class="bpstat t reveal"><b>Compute share</b><span>Revenue share on computation sold through the fleet — mining day one, batch compute at scale</span></div>
+      </div>
+      <div class="bpcols2">
+        <div class="reveal">
+          <p class="tick">Duty in a parts washer: ~20 h/day → <b>~21,900 kWh/yr</b> through one 3 kW module.</p>
+          <p class="tick">Heat delivered: the same kWh the owner already bought — <b>displaces ~$2,950/yr</b> of electric heating at a $0.135/kWh blended commercial rate.</p>
+          <p class="tick">Compute revenue at July-2026 mining rates: <b>$440–880/yr gross</b>, shared owner/ThermalCore.</p>
+          <p class="tick">Customer economics: heat they were buying anyway + compute share + demand-response credits → <b>effective payback 14–20 months</b> on pilot pricing (mgmt. estimate).</p>
+          <p class="tick">COGS at volume: <b>~$650/module</b> (pilot units 2–3× that, per NPI benchmarks) → target blended gross margin ≈ 60% with SaaS.</p>
+        </div>
+        <div class="reveal" style="text-align:center">
+          <svg viewBox="0 0 260 168" style="width:82%;max-width:340px">
+            <defs><linearGradient id="bpgg" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2dd4a7"/><stop offset=".55" stop-color="#f5c04e"/><stop offset="1" stop-color="#f4646c"/></linearGradient></defs>
+            <path d="M30 140 A100 100 0 0 1 230 140" fill="none" stroke="#1c2637" stroke-width="20" stroke-linecap="round"/>
+            <path d="M30 140 A100 100 0 0 1 175 60" fill="none" stroke="url(#bpgg)" stroke-width="20" stroke-linecap="round"/>
+            <line x1="130" y1="140" x2="172" y2="66" stroke="#e8eefa" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="130" cy="140" r="6" fill="#e8eefa"/>
+            <text x="130" y="112" text-anchor="middle" fill="#ffb066" font-family="Sora" font-weight="800" font-size="21">17 mo</text>
+            <text x="130" y="128" text-anchor="middle" fill="#9db0cb" font-size="8">customer payback (midpoint)</text>
+            <text x="30" y="156" text-anchor="middle" fill="#2dd4a7" font-size="8">6</text>
+            <text x="130" y="163" text-anchor="middle" fill="#f5c04e" font-size="8">18</text>
+            <text x="230" y="156" text-anchor="middle" fill="#f4646c" font-size="8">36+</text>
+          </svg>
+          <p class="framecaption">Customer payback gauge, months — pilot pricing, beachhead duty cycle (illustrative)</p>
+        </div>
+      </div>
+      <div class="bpbox cyan reveal">
+        <h3 style="margin-top:0;color:var(--cyan-soft)">Sizing discipline (the lesson incumbents ignore)</h3>
+        <p style="margin-bottom:0">Revenue is capped by <b>kWh of heat the host absorbs</b>, not kW of compute
+          installed. ThermalCore sizes to the host's summer minimum and targets near-continuous draw — that is why
+          parts washers, aquaculture, and cold-storage loops outrank residential tanks, and why "size to the tank,
+          not the rack" is a design rule in the fleet controller.</p>
+      </div>
+
+      <h3 class="reveal">Product development plan — professional engineering, priced from published benchmarks</h3>
+      <p class="reveal">Development is outsourced to a mid-tier U.S. product-development firm (blended $150–250/hr)
+        under founder IP oversight — not a homemade build. Figures from published 2024–2026 firm benchmarks;
+        program planned at range midpoints with 25% contingency.</p>
+      <div class="bpwrap reveal">
+      <table class="bptable">
+        <tr><th>Phase</th><th>Scope</th><th>Published range</th><th>Plan</th><th>Duration</th></tr>
+        <tr><td><b>P0 · Feasibility &amp; architecture</b></td><td>System architecture, thermal/electrical feasibility, safety-standard gap analysis</td><td class="num">$25K–$75K</td><td class="num">$60K</td><td>6–8 wks</td></tr>
+        <tr><td><b>P1 · Engineering prototype (alpha/EVT)</b></td><td>Oil-tight sealed housing, power electronics, firmware + connectivity, 3–5 prototype spins</td><td class="num">$150K–$400K</td><td class="num">$280K</td><td>5–8 mo</td></tr>
+        <tr><td><b>P2 · DVT + safety certification</b></td><td>Design-for-manufacture; ETL/UL-path listing of a 240V heating appliance; FCC Part 15</td><td class="num">$100K–$300K + $20K–$60K certs</td><td class="num">$205K</td><td>4–6 mo</td></tr>
+        <tr><td><b>P3 · Pilot batch (25 units)</b></td><td>CNC stainless housings, PCBA, potting, functional test fixtures, attrition overage</td><td class="num">$18K–$42K</td><td class="num">$35K</td><td>8–16 wks</td></tr>
+        <tr><td><b>P4 · Field pilots (3 sites)</b></td><td>Instrumented deployments: parts washer, aquaculture, multifamily hot water</td><td class="num">—</td><td class="num">$40K</td><td>4–6 mo</td></tr>
+        <tr><td colspan="3"><b>Program total (18–24 months)</b></td><td class="num"><b>$620K</b></td><td><b>~18 mo</b></td></tr>
+      </table>
+      </div>
+      <div class="reveal">
+        <svg viewBox="0 0 640 118" style="width:100%">
+          <text x="0" y="12" fill="#9db0cb" font-size="9">Timeline (months from funding)</text>
+          <g font-size="8.5" fill="#8494ad"><text x="78" y="28">0</text><text x="178" y="28">4</text><text x="278" y="28">8</text><text x="378" y="28">12</text><text x="478" y="28">16</text><text x="578" y="28">20</text></g>
+          <line x1="80" y1="32" x2="80" y2="114" stroke="#1c2637"/><line x1="180" y1="32" x2="180" y2="114" stroke="#1c2637"/><line x1="280" y1="32" x2="280" y2="114" stroke="#1c2637"/><line x1="380" y1="32" x2="380" y2="114" stroke="#1c2637"/><line x1="480" y1="32" x2="480" y2="114" stroke="#1c2637"/><line x1="580" y1="32" x2="580" y2="114" stroke="#1c2637"/>
+          <g font-size="8.5">
+            <rect x="80" y="36" width="50" height="11" rx="5" fill="#a78bfa"/><text x="6" y="45" fill="#a78bfa">P0 Feasibility</text>
+            <rect x="130" y="52" width="175" height="11" rx="5" fill="#ff8a2a"/><text x="6" y="61" fill="#ff8a2a">P1 Alpha/EVT</text>
+            <rect x="280" y="68" width="150" height="11" rx="5" fill="#4cc9f0"/><text x="6" y="77" fill="#4cc9f0">P2 DVT + certification</text>
+            <rect x="330" y="84" width="90" height="11" rx="5" fill="#2dd4a7"/><text x="6" y="93" fill="#2dd4a7">P3 Pilot batch</text>
+            <rect x="405" y="100" width="150" height="11" rx="5" fill="#f5c04e"/><text x="6" y="109" fill="#f5c04e">P4 Field pilots → seed</text>
+          </g>
+        </svg>
+      </div>
+      <div class="imgframe reveal" style="margin-top:14px"><img src="module2.jpg" alt="Engineering concept render of the ThermalCore module" loading="lazy" style="width:100%;max-height:340px;object-fit:cover;object-position:50% 45%"></div>
+      <p class="framecaption reveal">Engineering concept — threaded fitting, sealed compute core, backup coil. Concept render.</p>
+
+      <h3 class="reveal">Financial plan — the $1.25M, dollar by dollar</h3>
+      <div class="bpcols2">
+        <div class="reveal" style="text-align:center">
+          <svg viewBox="0 0 240 240" style="width:74%;max-width:300px">
+            <g transform="translate(120,120)">
+              <circle r="78" fill="none" stroke="#1c2637" stroke-width="34"/>
+              <circle r="78" fill="none" stroke="#ff8a2a" stroke-width="34" stroke-dasharray="243 490" transform="rotate(-90)"/>
+              <circle r="78" fill="none" stroke="#4cc9f0" stroke-width="34" stroke-dasharray="141 490" stroke-dashoffset="-243" transform="rotate(-90)"/>
+              <circle r="78" fill="none" stroke="#2dd4a7" stroke-width="34" stroke-dasharray="24 490" stroke-dashoffset="-384" transform="rotate(-90)"/>
+              <circle r="78" fill="none" stroke="#f5c04e" stroke-width="34" stroke-dasharray="16 490" stroke-dashoffset="-408" transform="rotate(-90)"/>
+              <circle r="78" fill="none" stroke="#a78bfa" stroke-width="34" stroke-dasharray="66 490" stroke-dashoffset="-424" transform="rotate(-90)"/>
+              <text y="-4" text-anchor="middle" fill="#e8eefa" font-family="Sora" font-weight="800" font-size="24">$1.25M</text>
+              <text y="14" text-anchor="middle" fill="#9db0cb" font-size="9">18–24 mo runway</text>
+            </g>
+          </svg>
+          <div class="bplegend">
+            <span><i style="background:#ff8a2a"></i>Product development $620K</span>
+            <span><i style="background:#4cc9f0"></i>Founder + first hires $360K</span>
+            <span><i style="background:#2dd4a7"></i>IP expansion $60K</span>
+            <span><i style="background:#f5c04e"></i>GTM &amp; pilots $40K</span>
+            <span><i style="background:#a78bfa"></i>Ops + contingency $170K</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <svg viewBox="0 0 300 170" style="width:100%;max-width:420px">
+            <g font-size="8.5" fill="#8494ad">
+              <line x1="40" y1="140" x2="290" y2="140" stroke="#2a3850"/>
+              <text x="60" y="154">2027</text><text x="140" y="154">2028</text><text x="222" y="154">2029</text>
+            </g>
+            <defs><linearGradient id="bpbar" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#c96a1a"/><stop offset="1" stop-color="#ffb066"/></linearGradient>
+            <linearGradient id="bpbar2" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#1d5c7d"/><stop offset="1" stop-color="#4cc9f0"/></linearGradient></defs>
+            <rect x="52" y="136" width="36" height="4" rx="2" fill="url(#bpbar)"/>
+            <text x="70" y="128" text-anchor="middle" fill="#ffb066" font-family="Sora" font-weight="700" font-size="10">$90K</text>
+            <rect x="132" y="112" width="36" height="28" rx="3" fill="url(#bpbar)"/>
+            <text x="150" y="104" text-anchor="middle" fill="#ffb066" font-family="Sora" font-weight="700" font-size="10">$1.4M</text>
+            <rect x="212" y="30" width="36" height="110" rx="3" fill="url(#bpbar2)"/>
+            <text x="230" y="22" text-anchor="middle" fill="#8fe3ff" font-family="Sora" font-weight="700" font-size="10">$6.8M</text>
+            <text x="70" y="167" text-anchor="middle" fill="#8494ad" font-size="7.4">25 pilot units</text>
+            <text x="150" y="167" text-anchor="middle" fill="#8494ad" font-size="7.4">500 units + SaaS</text>
+            <text x="230" y="167" text-anchor="middle" fill="#8494ad" font-size="7.4">2,800 units + 1st OEM license</text>
+          </svg>
+          <p style="font-size:.76rem;color:var(--dim);margin-top:6px">Management scenario, not a forecast: assumes
+            certification on plan, pilot conversion in the beachhead, a $3–6M seed for the 2027-28 scale-up, and
+            mining economics post-2028-halving replaced progressively by batch-compute demand.</p>
+        </div>
+      </div>
+      <div class="bpcols">
+        <div class="bpstat reveal"><b>M6</b><span>Alpha module runs a live tank at target watt density — firm-validated</span></div>
+        <div class="bpstat c reveal"><b>M12–15</b><span>ETL-listed product + 25-unit pilot fleet live at 3 sites</span></div>
+        <div class="bpstat t reveal"><b>M18</b><span>Instrumented pilot data + LOIs → $3–6M seed at climate-hardware benchmarks</span></div>
+      </div>
+      <p class="reveal" style="font-size:.9rem"><b>Grant stacking (non-dilutive, already mapped):</b> NSF SBIR Phase I
+        ($305K-class) and DOE SBIR ($200–250K) applications post-incorporation; NYSERDA electrification solicitations
+        anchored on committed affordable-housing pilot sites; utility demand-response revenue from the first fleet.
+        Every grant dollar extends runway without dilution; none is assumed in the budget above.</p>
+
+      <h3 class="reveal">Team &amp; hiring plan</h3>
+      <div class="bpcols2" style="align-items:start">
+        <div class="reveal" style="text-align:center">
+          <img src="founder.jpg" alt="The founder of ThermalCore" style="width:170px;height:170px;object-fit:cover;object-position:50% 20%;border-radius:50%;border:3px solid rgba(255,138,42,.55);box-shadow:0 0 28px rgba(255,138,42,.3);margin:0 auto 12px;display:block">
+          <img src="founder-name.png" alt="Founder" style="height:26px;width:auto;margin:0 auto 2px;display:block">
+          <p class="mono" style="font-size:.7rem;letter-spacing:.12em;color:var(--dim)">FOUNDER &amp; INVENTOR · LL.B. · LL.M.</p>
+        </div>
+        <div class="reveal">
+          <p class="tick"><b>Attorney</b> specializing in patent and contract law; drafts and files his own U.S.
+            patent applications pro se — ThermalCore is his fifth. IP strategy, licensing, and contracts are
+            founder-level competencies, not budget lines.</p>
+          <p class="tick"><b>Real-estate operator</b> running rentals and investor relations across a large
+            multifamily portfolio — the rooms, owners, and programs where the building-scale story starts.</p>
+          <p class="tick"><b>First hires this round:</b> a founding engineer / program manager to own the
+            development-firm relationship, then fractional pilot operations.</p>
+          <p class="tick"><b>Advisors targeted:</b> UL-experienced thermal/appliance engineering, utility
+            demand-response, and operators from the pilot verticals.</p>
+        </div>
+      </div>
+
+      <h3 class="reveal">Risks &amp; mitigations</h3>
+      <div class="bpwrap reveal">
+      <table class="bptable">
+        <tr><th>Risk</th><th>Reality check</th><th>Mitigation built into the plan</th></tr>
+        <tr><td><b>Mining economics decay</b> (Apr 2028 halving)</td><td>Compute subsidy halves on a known date</td><td>Heat is the product, compute is the rebate; trailing-edge ASIC paybacks inside the halving window; fleet migrates to batch compute as it scales</td></tr>
+        <tr><td><b>Certification surprises</b> (240V wet heater)</td><td>First-pass failures add 3–6 wks each</td><td>UL-experienced firm from day one; safety-standard gap analysis before design freeze; ETL path is 20–40% cheaper/faster than UL for identical standards</td></tr>
+        <tr><td><b>Patent prosecution</b></td><td>First examination typically 18–24 mo out</td><td>Founder prosecutes in-house; continuation family extends coverage; the business sells on "patent pending" + trade-secret fleet software meanwhile</td></tr>
+        <tr><td><b>Host absorption limits</b></td><td>Tanks absorb only what they use</td><td>Duty-cycle-first site selection; controller sizes to summer minimum; no residential SKU until the service model matures</td></tr>
+        <tr><td><b>Incumbent response</b></td><td>Well-funded players could pivot to retrofit</td><td>That pivot crosses the patent-pending claims — converting competitors into licensees; speed to pilot data and OEM conversations first</td></tr>
+        <tr><td><b>Single-founder execution</b></td><td>Hardware is a team sport</td><td>The round explicitly buys a professional engineering firm plus a founding engineer; the founder focuses on IP, sites, and capital</td></tr>
+      </table>
+      </div>
+
+      <p class="gridnote reveal" style="text-align:left">Sources: U.S. Census Bureau, USDA NASS, AHLA, PHTA, Brewers
+        Association, IBISWorld, Grand View Research, Fortune Business Insights (2024–2025); LBNL 2024 U.S. Data Center
+        Energy Usage Report; EIA; de Vries &amp; Stoll (2021). Development costs from published firm benchmarks
+        (Analogy Design, ByteSnap, Jaycon, MistyWest, Design1st, Bolt VC, Dragon Innovation, Glencoyne, Amtech,
+        FixturFab, Xometry, Sheridan Technologies, Intertek, 2024–2026). Funding benchmarks: Carta, PitchBook-NVCA,
+        Sightline Climate/CTVC; company rounds per public announcements. Workload rates are July 2026 snapshots and
+        move constantly. Financial projections are management estimates for planning, not forecasts. Nothing on this
+        page is an offer to sell or a solicitation of an offer to buy securities.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -652,6 +923,7 @@
         <a href="#uses">Uses</a>
         <a href="#markets">Markets</a>
         <a href="#patent">Patent</a>
+        <a href="#plan">Business Plan</a>
       </div>
       <div>
         <h4>Contact</h4>

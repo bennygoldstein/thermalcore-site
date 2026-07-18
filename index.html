@@ -333,7 +333,7 @@
       <a href="#problem">The Problem</a>
       <a href="#how">How It Works</a>
       <a href="#product">Product</a>
-      <a href="#uses">Uses</a>
+      <a href="#uses">Uses</a><a href="#sensing">Sensing</a>
       <a href="#why-now">Why Now</a>
       <a href="#markets">Markets</a>
       <a href="#patent">Patent</a>
@@ -554,6 +554,209 @@
       <p class="gridnote reveal">Market figures are approximate and conservatively rounded — U.S. Census Bureau, USDA, AHLA, PHTA, Brewers Association, IBISWorld, Grand View Research, Fortune Business Insights (2024–2025).</p>
     </div>
   </section>
+
+  <!-- ================= SENSING / DIAGNOSTICS ================= -->
+  <section id="sensing">
+  <div class="wrap">
+    <p class="kicker reveal">Beyond Heat</p>
+    <h2 class="reveal">The element that also listens.</h2>
+    <p class="sub reveal">A resistive element has exactly two states: on and off. It can make heat, but it can
+      never ask a question. ThermalCore can do both &mdash; because computation is a heat source software can
+      dial to any level, precisely, while it is still earning. That turns the heating element into the tank's
+      first real instrument. <strong>Patent pending.</strong></p>
+
+    <div class="cards c3">
+      <div class="card reveal"><span class="step" aria-hidden="true">01</span>
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 3 10 3-8 2 3h5"/></svg></div>
+        <h3>Send a known pulse.</h3>
+        <p>The controller nudges the compute load along a deliberate profile &mdash; a step, a ramp, a slow
+          oscillation. It is a precise, repeatable amount of heat placed into the water on purpose. The chips
+          keep working the whole time; nothing is wasted to take the measurement.</p>
+      </div>
+      <div class="card reveal"><span class="step" aria-hidden="true">02</span>
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg></div>
+        <h3>Watch how the water answers.</h3>
+        <p>Sensors on the module &mdash; on the outer wall, at the tip, inside the dry-well sleeve, or spaced
+          along the flexible conduit &mdash; record how fast the heat is carried away. Water, scale, sediment
+          and air each answer with a different curve. The shape of that answer is the measurement.</p>
+      </div>
+      <div class="card reveal"><span class="step" aria-hidden="true">03</span>
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8a2a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7"/><path d="M6.5 6.5a8 8 0 1 0 11 0"/></svg></div>
+        <h3>Act on it, in the tank.</h3>
+        <p>This is not a dashboard. The module responds physically: throttle back, shut down before damage,
+          run the auxiliary coil through a de-scale cycle, or flag the unit for service before anyone notices
+          a problem. The reading and the response happen in the same device.</p>
+      </div>
+    </div>
+
+    <div class="wideframe reveal">
+      <svg viewBox="0 0 1120 560" width="1120" height="560" role="img"
+           aria-label="Diagram: the ThermalCore module sends a controlled heat pulse into the tank and reads the thermal response to identify water level, scale build-up, dry-fire and stratification">
+        <defs>
+          <linearGradient id="tankg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0f1720"/><stop offset="1" stop-color="#0a1017"/>
+          </linearGradient>
+          <linearGradient id="waterg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1c3f56"/><stop offset="1" stop-color="#122c3d"/>
+          </linearGradient>
+          <linearGradient id="rodg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#9fb3c2"/><stop offset="0.45" stop-color="#e8f1f7"/><stop offset="1" stop-color="#7f95a5"/>
+          </linearGradient>
+          <radialGradient id="pulseg" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#ff8a2a" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="#ff8a2a" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <rect width="1120" height="560" fill="#070b10"/>
+
+        <!-- tank -->
+        <g transform="translate(70,60)">
+          <rect x="0" y="0" width="300" height="440" rx="46" fill="url(#tankg)" stroke="#243244" stroke-width="2"/>
+          <rect x="14" y="60" width="272" height="366" rx="34" fill="url(#waterg)"/>
+          <!-- stratification bands -->
+          <rect x="14" y="60"  width="272" height="52" rx="26" fill="#2a6180" opacity="0.55"/>
+          <rect x="14" y="112" width="272" height="46" fill="#245470" opacity="0.4"/>
+          <rect x="14" y="330" width="272" height="96" rx="26" fill="#0e2534" opacity="0.6"/>
+          <text x="150" y="92"  text-anchor="middle" fill="#8fd4f2" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600">hot layer</text>
+          <text x="150" y="392" text-anchor="middle" fill="#5d7d92" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600">cold layer</text>
+
+          <!-- pulse rings -->
+          <circle cx="150" cy="248" r="120" fill="url(#pulseg)"/>
+          <circle cx="150" cy="248" r="58"  fill="none" stroke="#ff8a2a" stroke-width="1.6" opacity="0.75"/>
+          <circle cx="150" cy="248" r="92"  fill="none" stroke="#ff8a2a" stroke-width="1.3" opacity="0.45"/>
+          <circle cx="150" cy="248" r="126" fill="none" stroke="#ff8a2a" stroke-width="1.1" opacity="0.22"/>
+
+          <!-- module through the port -->
+          <rect x="-46" y="234" width="66" height="30" rx="7" fill="#33404f" stroke="#4a5b6d" stroke-width="1.5"/>
+          <rect x="16" y="238" width="196" height="22" rx="11" fill="url(#rodg)"/>
+          <circle cx="212" cy="249" r="11" fill="#dce8f0"/>
+          <!-- sensor points -->
+          <circle cx="52"  cy="249" r="6" fill="#4cc9f0"/>
+          <circle cx="118" cy="249" r="6" fill="#4cc9f0"/>
+          <circle cx="184" cy="249" r="6" fill="#4cc9f0"/>
+          <text x="-46" y="222" fill="#9fb3c2" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">element port</text>
+
+          <!-- scale crust -->
+          <path d="M150 330 q16 -12 34 -3 q16 8 32 -2" fill="none" stroke="#c9a227" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+          <text x="238" y="352" fill="#c9a227" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">scale</text>
+        </g>
+
+        <!-- response curves -->
+        <g transform="translate(470,70)">
+          <text x="0" y="0" fill="#e8f1f7" font-family="ui-sans-serif,system-ui,sans-serif" font-size="19" font-weight="700">The same pulse. Four different answers.</text>
+
+          <!-- axes -->
+          <line x1="0" y1="330" x2="560" y2="330" stroke="#2b3a4b" stroke-width="1.6"/>
+          <line x1="0" y1="40"  x2="0"   y2="330" stroke="#2b3a4b" stroke-width="1.6"/>
+          <text x="562" y="352" text-anchor="end" fill="#5d7d92" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13">time &rarr;</text>
+          <text x="-8" y="46" text-anchor="end" fill="#5d7d92" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" transform="rotate(-90,-8,46)">temperature rise</text>
+
+          <!-- dry fire: steep -->
+          <path d="M0 330 C 60 250, 90 130, 150 60 L 240 44" fill="none" stroke="#ff5a5a" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="240" cy="44" r="5" fill="#ff5a5a"/>
+          <text x="252" y="49" fill="#ff5a5a" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600">no water &mdash; shut down now</text>
+
+          <!-- scale: sluggish but climbing -->
+          <path d="M0 330 C 120 300, 240 250, 380 212 L 520 196" fill="none" stroke="#c9a227" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="520" cy="196" r="5" fill="#c9a227"/>
+          <text x="330" y="182" fill="#c9a227" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600">scale build-up &mdash; service soon</text>
+
+          <!-- normal -->
+          <path d="M0 330 C 130 312, 260 292, 400 280 L 540 274" fill="none" stroke="#4cc9f0" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="540" cy="274" r="5" fill="#4cc9f0"/>
+          <text x="360" y="264" fill="#4cc9f0" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600">healthy tank</text>
+
+          <!-- low level -->
+          <path d="M0 330 C 90 288, 170 214, 270 158 L 400 132" fill="none" stroke="#ffb066" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="9 7"/>
+          <circle cx="400" cy="132" r="5" fill="#ffb066"/>
+          <text x="412" y="128" fill="#ffb066" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" font-weight="600">low water level</text>
+
+          <text x="0" y="392" fill="#8aa0b2" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15">
+            No extra sensor. No extra part. The heat source is the instrument.</text>
+        </g>
+      </svg>
+    </div>
+    <p class="framecaption reveal">Concept illustration &mdash; the module places a known amount of heat into the
+      tank and reads how the water carries it away. Each fault has its own signature.</p>
+
+    <h3 class="reveal" style="margin-top:52px">What a listening element can tell you</h3>
+    <div class="cards c3">
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff5a5a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-2.6 3.6-5.6 6.2-5.6 9.4a5.6 5.6 0 0 0 11.2 0c0-3.2-3-5.8-5.6-9.4z"/><path d="M4 20h16"/><path d="M3.2 3.2l17.6 17.6"/></svg></div>
+        <h3>Dry-fire protection</h3>
+        <p>If the tank drains or the module is uncovered, heat has nowhere to go and temperature runs away
+          within seconds. ThermalCore sees the runaway slope and throttles or stops &mdash; protecting silicon,
+          which fails far below the temperature a steel sheath tolerates.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M4.5 18c.6-2.4 2-3.2 3.4-2.2 1.1.8 1.7.2 2.4-.8.9-1.3 2.2-1.3 3.1-.2.8 1 1.6 1.2 2.5.4 1.2-1 2.4-.3 3.1 2.8"/><path d="M7 11.5V6M12 10V4M17 11.5V7"/></svg></div>
+        <h3>Scale and sediment</h3>
+        <p>Limescale is the single biggest cause of lost efficiency and premature failure in electric water
+          heating. A growing crust slows heat transfer in a way that is unmistakable in the response curve
+          &mdash; visible long before a technician could find it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="4"/><path d="M5 9h14M5 13.5h14"/><path d="M9 6.2h6"/></svg></div>
+        <h3>Water level and stratification</h3>
+        <p>Sensors spaced along the flexible conduit read the tank as a column rather than a point. That shows
+          how much usable hot water remains, where the thermocline sits, and whether the tank is short-cycling
+          against a poorly placed thermostat.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l7 3v5.6c0 4.2-2.9 7-7 10-4.1-3-7-5.8-7-10V5.7z"/><path d="M12 8v4.5"/><path d="M12 15.6h.01"/></svg></div>
+        <h3>Anode and corrosion health</h3>
+        <p>Every tank carries a sacrificial anode that quietly dissolves. When it is gone, the tank itself
+          starts corroding. A powered module in the water can watch the electrochemical environment and warn
+          while the fix is still a $30 anode rod, not a flooded basement.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v2.5"/></svg></div>
+        <h3>Seal integrity</h3>
+        <p>The module is sealed and pressure-rated. It also knows what its own interior should look like, so a
+          breach shows up as a change in internal conditions &mdash; and it can shut itself down and raise an
+          alert rather than fail quietly.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8a2a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0z"/><circle cx="12" cy="17.5" r="1.6" fill="#ff8a2a" stroke="none"/></svg></div>
+        <h3>Failing thermostats and elements</h3>
+        <p>A tank that never reaches setpoint, cycles too often, or heats far slower than its own history
+          suggests a fault elsewhere in the appliance. The module has the baseline to notice, because it has
+          been measuring the same tank every day.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin-top:52px">Why this matters commercially</h3>
+    <div class="cards c3">
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4cc9f0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></div>
+        <h3>Recurring revenue, not a one-time sale</h3>
+        <p>A heating element is sold once and forgotten. A component that predicts its own tank's maintenance
+          feeds a service business every year it stays installed &mdash; which is exactly the model manufacturers
+          and property operators already run on.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb066" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v6c0 4.4-3.2 7.4-8 8-4.8-.6-8-3.6-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Leaks caught before the ceiling does</h3>
+        <p>Water heater failure is one of the most common and most expensive property claims there is. Early
+          warning from inside the tank turns a catastrophic replacement into a scheduled visit &mdash; which is
+          a story insurers and building owners understand immediately.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff8a2a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+        <h3>Every unit reports, at scale</h3>
+        <p>Across a portfolio, the same measurement becomes a maintenance map: which buildings scale fastest,
+          which tanks are near end of life, where the hot water is actually being used. Useful whether or not
+          a single kilowatt-hour of computing is ever sold.</p>
+      </div>
+    </div>
+
+    <p class="sub reveal" style="margin-top:40px">The instrument costs nothing extra to add. The heat source was
+      always going to be there &mdash; ThermalCore simply makes it controllable enough to ask a question, and
+      smart enough to act on the answer.</p>
+  </div>
+</section>
+
 
   <!-- ================= WHY NOW ================= -->
   <section id="why-now">

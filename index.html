@@ -315,7 +315,44 @@
   .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .js .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-</style>
+
+  /* ---------- early-access signup ---------- */
+  .signuppanel{border-radius:26px;padding:54px 44px;position:relative;overflow:hidden;
+    border:1px solid var(--line2);
+    background:radial-gradient(70% 100% at 50% 0%,rgba(255,138,42,.14) 0%,transparent 62%),
+               radial-gradient(60% 90% at 85% 100%,rgba(76,201,240,.12) 0%,transparent 60%),
+               linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+    box-shadow:0 0 0 1px rgba(255,138,42,.1),0 30px 90px rgba(0,0,0,.5)}
+  .signuppanel h2{margin:0 0 14px;max-width:16ch}
+  .signuppanel .sub{margin:0 0 34px;max-width:62ch}
+  .signupform{display:flex;flex-direction:column;gap:18px;max-width:760px}
+  .fgrid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fld{display:flex;flex-direction:column;gap:8px}
+  .fld>span{font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--muted)}
+  .fld>span i{color:var(--orange);font-style:normal}
+  .fld input,.fld select,.fld textarea{
+    width:100%;padding:14px 16px;border-radius:12px;font:inherit;font-size:.95rem;
+    color:var(--text);background:rgba(255,255,255,.04);
+    border:1px solid var(--line2);transition:border-color .18s,box-shadow .18s,background .18s}
+  .fld textarea{resize:vertical;min-height:92px}
+  .fld input::placeholder,.fld textarea::placeholder{color:#6f819a}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{
+    outline:none;border-color:var(--orange);background:rgba(255,255,255,.06);
+    box-shadow:0 0 0 3px rgba(255,138,42,.16)}
+  .fld select{appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%239db0cb' stroke-width='2'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+  .fld select option{background:#0b1220;color:var(--text)}
+  .signupbtn{align-self:flex-start;margin-top:6px;padding:15px 34px;font-size:1rem}
+  .fnote{font-size:.8rem;color:var(--dim);margin:2px 0 0;max-width:60ch}
+  @media(max-width:760px){
+    .signuppanel{padding:38px 22px;border-radius:20px}
+    .fgrid2{grid-template-columns:1fr}
+    .signupbtn{align-self:stretch;justify-content:center}
+  }
+
+  </style>
 </head>
 <body>
 <div class="field"></div>
@@ -330,7 +367,7 @@
       THERMALCORE
     </a>
     <nav class="navlinks" id="navlinks">
-      <a href="#problem">The Problem</a>
+      <a href="#early-access">Early Access</a><a href="#problem">The Problem</a>
       <a href="#how">How It Works</a>
       <a href="#product">Product</a>
       <a href="#uses">Uses</a><a href="#sensing">Sensing</a>
@@ -391,6 +428,81 @@
       </div>
     </div>
   </div>
+
+  <!-- ================= EARLY ACCESS / WAITLIST ================= -->
+  <section id="early-access">
+    <div class="wrap">
+      <div class="signuppanel reveal">
+        <span class="badge"><span class="dot" aria-hidden="true"></span>Orders opening soon</span>
+        <h2>Be first in line.</h2>
+        <p class="sub">ThermalCore is patent pending and we are talking to manufacturers now. Leave your
+          details and we will send you updates as it moves &mdash; and everyone on this list gets first
+          access when orders open, at a discount off the launch price.</p>
+
+        <form class="signupform" id="tc-signup"
+              action="https://formsubmit.co/bennygoldstein@msn.com" method="POST">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="ThermalCore early-access signup">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://thermalcore.energy/thanks.html">
+          <!-- honeypot -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="fgrid2">
+            <label class="fld">
+              <span>Name <i>*</i></span>
+              <input type="text" name="Name" required autocomplete="name" placeholder="Your name">
+            </label>
+
+            <label class="fld">
+              <span>Email <i>*</i></span>
+              <input type="email" name="Email" required autocomplete="email" placeholder="you@example.com">
+            </label>
+
+            <label class="fld">
+              <span>Phone</span>
+              <input type="tel" name="Phone" autocomplete="tel" placeholder="Optional">
+            </label>
+
+            <label class="fld">
+              <span>Where you are <i>*</i></span>
+              <input type="text" name="Location" required autocomplete="address-level2"
+                     placeholder="City, State / Country">
+            </label>
+          </div>
+
+          <label class="fld">
+            <span>What describes you best? <i>*</i></span>
+            <select name="I am" required>
+              <option value="" selected disabled>Please choose one</option>
+              <option>Homeowner &mdash; single home appliance</option>
+              <option>Multifamily building owner or operator</option>
+              <option>Property manager</option>
+              <option>Plumber, contractor or installer</option>
+              <option>Commercial or industrial site (laundry, kitchen, pool, process tank)</option>
+              <option>Aquaculture or greenhouse</option>
+              <option>Manufacturer or distributor</option>
+              <option>Investor</option>
+              <option>Press or research</option>
+              <option>Just curious</option>
+            </select>
+          </label>
+
+          <label class="fld">
+            <span>Anything you want to tell us</span>
+            <textarea name="Notes" rows="3"
+              placeholder="How many tanks, what kind of building, questions &mdash; anything at all."></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary signupbtn">Keep me updated</button>
+          <p class="fnote">No spam, and you can ask us to remove you at any time. We will only use this to
+            send you ThermalCore updates.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ================= PROBLEM ================= -->
   <section id="problem">

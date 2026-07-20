@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>You're on the list — ThermalCore</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#04070f; --text:#e8eefa; --muted:#9db0cb; --dim:#8494ad;
+    --line2:rgba(148,163,184,.26);
+    --orange:#ff8a2a; --orange-soft:#ffb066; --cyan:#4cc9f0;
+    --grad:linear-gradient(92deg,#ff8a2a 0%,#ffb066 45%,#4cc9f0 100%);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);
+    font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+    display:grid;place-items:center;padding:32px;text-align:center}
+  .field{position:fixed;inset:0;z-index:-1;background:
+    radial-gradient(55% 45% at 82% -5%, rgba(76,201,240,.13) 0%, transparent 60%),
+    radial-gradient(50% 42% at 8% 12%, rgba(255,138,42,.11) 0%, transparent 55%),
+    radial-gradient(60% 50% at 50% 115%, rgba(255,138,42,.07) 0%, transparent 60%)}
+  .card{max-width:560px}
+  .tick{width:74px;height:74px;margin:0 auto 26px;border-radius:50%;
+    display:grid;place-items:center;border:1px solid rgba(255,138,42,.4);
+    background:rgba(255,138,42,.08);box-shadow:0 0 40px rgba(255,138,42,.25)}
+  h1{font-family:Sora,Inter,sans-serif;font-weight:800;font-size:clamp(1.9rem,5vw,2.7rem);
+    line-height:1.1;margin:0 0 16px;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{color:var(--muted);font-size:1.02rem;line-height:1.65;margin:0 0 14px}
+  .small{color:var(--dim);font-size:.86rem;margin-top:22px}
+  a.btn{display:inline-flex;align-items:center;gap:9px;margin-top:26px;
+    padding:13px 26px;border-radius:12px;font-weight:700;font-size:.95rem;
+    text-decoration:none;color:#04070f;background:var(--grad);
+    box-shadow:0 8px 30px rgba(255,138,42,.35);transition:box-shadow .18s}
+  a.btn:hover{box-shadow:0 12px 40px rgba(255,138,42,.5)}
+</style>
+</head>
+<body>
+<div class="field" aria-hidden="true"></div>
+<main class="card">
+  <div class="tick" aria-hidden="true">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffb066"
+         stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12.5l5.2 5.2L20 7"/>
+    </svg>
+  </div>
+  <h1>You're on the list.</h1>
+  <p>Thanks — we've got your details. We'll send you updates as ThermalCore moves, and you'll hear
+    from us before orders open.</p>
+  <p>Nothing else to do for now.</p>
+  <a class="btn" href="/">Back to ThermalCore</a>
+  <p class="small">Questions in the meantime: bennygoldstein@msn.com</p>
+</main>
+</body>
+</html>

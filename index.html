@@ -367,6 +367,15 @@
   .signupform.is-sending{opacity:.55;pointer-events:none}
   .formerr{color:#ff9b9b;font-size:.86rem;margin:10px 0 0}
 
+  
+  /* ---------- explainer video (aligned to the site content column) ---------- */
+  #video{padding:56px 0 0}
+  .videoframe{position:relative;width:100%;aspect-ratio:16/9;line-height:0;
+    border-radius:22px;overflow:hidden;border:1px solid var(--line2);background:#000;
+    box-shadow:0 0 0 1px rgba(255,138,42,.15),0 24px 80px rgba(0,0,0,.6),0 0 90px rgba(255,138,42,.18)}
+  .videoframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  @supports not (aspect-ratio:16/9){.videoframe{height:0;padding-top:56.25%}}
+  @media(max-width:760px){#video{padding:40px 0 0}.videoframe{border-radius:16px}}
   </style>
 </head>
 <body>
@@ -443,6 +452,21 @@
       </div>
     </div>
   </div>
+
+  <!-- ================= EXPLAINER VIDEO (full-bleed) ================= -->
+  <section id="video" aria-label="ThermalCore explainer video">
+    <div class="wrap">
+      <div class="videoframe">
+        <iframe src="https://www.youtube-nocookie.com/embed/wGwKnuPpmeE?rel=0&amp;modestbranding=1"
+              title="ThermalCore &mdash; a heating element that pays for itself"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ================= EARLY ACCESS / WAITLIST ================= -->
   <section id="early-access">

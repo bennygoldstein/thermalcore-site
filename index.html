@@ -102,6 +102,13 @@
   h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .lede{margin-top:20px;font-size:1.11rem;color:var(--muted);max-width:34em}
   .cta-row{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .paperstrip{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:28px 0 8px;padding:16px 22px;
+    border:1px solid var(--line2);border-radius:var(--radius);background:var(--panel2);
+    color:var(--text);text-decoration:none;transition:border-color .2s,transform .2s}
+  .paperstrip:hover{border-color:var(--orange);transform:translateY(-1px)}
+  .paperstrip-tag{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-soft);white-space:nowrap}
+  .paperstrip-title{flex:1 1 320px;color:var(--muted);font-size:15px}
+  .paperstrip-go{font-weight:700;color:var(--cyan-soft);white-space:nowrap}
   .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:12px;font-weight:700;
     font-size:.95rem;transition:transform .18s,box-shadow .18s;cursor:pointer;border:none}
   .btn:hover{transform:translateY(-2px)}
@@ -451,6 +458,15 @@
         <div><b>6</b><span>patent-pending product variants — one standard port</span></div>
       </div>
     </div>
+  </div>
+
+  <!-- ================= RESEARCH PAPER STRIP ================= -->
+  <div class="wrap">
+    <a class="paperstrip" href="https://bennylabs.org/thermalcore/paper/" target="_blank" rel="noopener">
+      <span class="paperstrip-tag">New &middot; Research paper</span>
+      <span class="paperstrip-title">The Heating Element That Computes &mdash; the full working paper, with the thermal model and open code.</span>
+      <span class="paperstrip-go">Read the paper &rarr;</span>
+    </a>
   </div>
 
   <!-- ================= EXPLAINER VIDEO (full-bleed) ================= -->
